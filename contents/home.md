@@ -2,7 +2,7 @@
 
 [![Xuefeng Xu](https://img.shields.io/badge/Raymondxu-CivilTechLabs-blue?logo=github)](https://github.com/Raymondxu-CivilTechLabs)
 
-He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS) at Harvard University.
+He is currently a joint traning ph.D in the Department of civil engineering (DICA) at politecnico di milano.
 
 #### Contact
 
@@ -11,11 +11,11 @@ Email: xuefeng.xu[at]mail.polimi.it
 
 #### Education
 
-Joint training ph.D., Civil Engineering, Politecnico di Milano, 2025—2026.\
+Joint training ph.D., Civil Engineering, Politecnico di Milano, 2025—present.\
 Ph.D., Structural Engineering, Southwest Jiaotong University, 2021—present.\
-M.E., Architecture and Civil Engineering, China University of Mining and Technology, 2022—2025.
+M.E., Architecture and Civil Engineering, Southwest Jiaotong University, 2018—2021.
 
 #### Research Interests
 
-Machine Learning for Seismology; Foundation Model; Observational Seismology; Microseismic Monitoring
+Machine Learning; civil Materials; Intelligent Construction.
 
