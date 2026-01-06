@@ -1,6 +1,6 @@
 
 
-[![Raymondxu-CivilTechLabs](https://img.shields.io/badge/Raymondxu-CivilTechLabs-github-blue?logo=github)](https://github.com/Raymondxu-CivilTechLabs)
+[![Xuefeng Xu](https://img.shields.io/badge/Raymondxu-CivilTechLabs-blue?logo=github)](https://github.com/Raymondxu-CivilTechLabs)
 
 He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS) at Harvard University.
 
