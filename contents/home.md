@@ -13,7 +13,7 @@ Email: xuefeng_xu[at]mail.polimi.it
 
 Joint training ph.D., Civil Engineering, Politecnico di Milano, 2025—2026.\
 Ph.D., Structural Engineering, Southwest Jiaotong University, 2021—present.\
-M.E., Architecture and Civil Engineering, China University of Mining and Technology, 2022—2025.\
+M.E., Architecture and Civil Engineering, China University of Mining and Technology, 2022—2025.
 
 #### Research Interests
 
