@@ -17,5 +17,5 @@ M.E., Architecture and Civil Engineering, Southwest Jiaotong University, 2018—
 
 #### Research Interests
 
-Machine Learning; civil Materials; Intelligent Construction; Multi-scale performance analysis.
+Machine Learning; Civil Materials; Intelligent Construction; Multi-scale Performance Analysis.
 
