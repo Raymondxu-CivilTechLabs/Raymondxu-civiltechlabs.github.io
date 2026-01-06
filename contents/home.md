@@ -7,7 +7,7 @@ He is currently a Fellow in the Department of Earth and Planetary Sciences (EPS)
 #### Contact
 
 Email: raymond_xu[at]my.swjtu.edu.cn\
-Email: xuefeng_xu[at]mail.polimi.it
+Email: xuefeng.xu[at]mail.polimi.it
 
 #### Education
 
