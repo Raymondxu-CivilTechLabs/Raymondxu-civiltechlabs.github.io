@@ -1,4 +1,3 @@
-## Biography
 
 #### Current Status:
 

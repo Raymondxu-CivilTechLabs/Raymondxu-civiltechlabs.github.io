@@ -5,7 +5,7 @@
 ![Papers](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=paperCount&query=$.paperCount&label=Papers&color=green)
 ![h-index](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=hIndex&query=$.hIndex&label=h-index&color=purple)
 
-<strong>About Me:</strong> 
+#### About Me:
 
 I am currently pursuing a joint training Ph.D. in the Department of Civil Engineering (DICA) at Politecnico di Milano, while also advancing my Ph.D. in Structural Engineering at Southwest Jiaotong University. My academic journey has taken me from a Master’s in Architecture and Civil Engineering at Southwest Jiaotong University to tackling complex, multi-scale challenges in civil materials and intelligent construction.
 
