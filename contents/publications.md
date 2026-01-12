@@ -2,15 +2,23 @@
 
 ####  Academic Papers
 
-- X. Yang, <strong>S. Li</strong>, A. Cao*, C. Wang*, Y. Liu, X. Bai, and Q. Niu (2024). Deep Transfer Learning for P-wave Arrival Identification and Automatic Seismic Source Location in Underground Mines. <strong>International Journal of Rock Mechanics and Mining Sciences</strong>. [[Paper]](https://doi.org/10.1016/j.ijrmms.2024.105888)
+- <strong>X. Xu<strong>, S. Cui*, Z. Cao, S. Zhang, J. W. W. Ju*, P. Liu, & X. Wang (2023). Study on the interfacial bonding performance of basalt ultra-high performance concrete repair and reinforcement materials under severe service environment. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2023.132624)
 
-- <strong>S. Li</strong>, X. Yang*, A. Cao*, C. Wang, Y. Liu, Y. Liu, and Q. Niu (2024). SeisT: A Foundational Deep-Learning Model for Earthquake Monitoring Tasks. <strong>IEEE Transactions on Geoscience and Remote Sensing</strong>. [[Paper]](https://doi.org/10.1109/TGRS.2024.3371503) [[Code]](https://github.com/senli1073/SeisT)
+- <strong>X. Xu<strong>, L. Xu, G. Zeng, S. Cui*, & X. Wang*. Effect of different fiber sizing on basalt fiber-reinforced cement-based materials at low temperature: From macro mechanical properties to microscopic mechanism. Construction and Building Materials.[[Paper]](https://doi.org/10.1016/j.conbuildmat.2023.131773)
 
-- A. Cao, X. Yang, C. Wang*, <strong>S. Li</strong>, Y. Liu, L. Dou, and Q. Niu (2023). High-Precision Phase Picking and Automatic Source Locating Method for Seismicity in Mines Based on Deep Transfer Learning. <strong>Journal of China Coal Society</strong>. [[Paper]](https://doi.org/10.13225/j.cnki.jccs.2023.0095)
+- <strong>X. Xu<strong>, Z. Chen, G. Zeng, Q. Ouyang, S. Cui*, & G. Li. Effect of different sizing agent-treated basalt fibers on bending and cracking performance of reinforced BFRC beams. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2022.130037)
 
-- A. Cao, Y. Liu, X. Yang*, <strong>S. Li</strong>, C. Wang, X. Bai, and Y. Liu (2022). Physical Index and Data Fusion-Driven Method for Coal Burst Prediction in Time Sequence. <strong>Journal of China Coal Society</strong>. [[Paper]](https://doi.org/10.13225/j.cnki.jccs.2022.0680)
+- <strong>X. Xu<strong>, X. Yan, Z. Chen, S. Cui*, & Z. Liu. Experimental study on the interfacial bond between short cut basalt fiber bundles and cement matrix. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2020.119353)
 
-- X. Yang, X. Yu, C. Zhang, <strong>S. Li</strong>, and Q. Niu (2021). MineGPS: Battery-Free Localization Base Station for Coal Mine Environment. <strong>IEEE Communications Letters</strong>. [[Paper]](https://doi.org/10.1109/LCOMM.2021.3081593)
+- <strong>X. Xu<strong>, Z. Jiang, M. Wan, S. Cui*, P. Liu, H. Zeng. Experimental study on performance of reinforced concrete short columns repaired and strengthened with Basalt fiber ultra-high-performance concrete (BF-UHPC). Structures. [[Paper]](https://doi.org/10.1016/j.istruc.2024.106170)
+
+- Liu, P., Cui, S., Guo, C., Wu, Q & <strong>Xu, X.<strong> (2022). Shrinkage performance of concrete for shotcrete use restrained by rock in hot and dry tunnel environment. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2022.127314)
+
+- Liu, P., Li, Z., <strong>Xu, X.<strong>, & Ju, J. W. (2020). Shotcrete performance-loss due to seepage and temperature coupling in cold-region tunnels. Construction and Building Materials, 246, 118488. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2020.118488)
+
+- Liu, P., Cui, S., Li, Z., <strong>Xu, X.<strong>, & Guo, C. (2019). Influence of surrounding rock temperature on mechanical property and pore structure of concrete for shotcrete use in a hot-dry environment of high-temperature geothermal tunnel. Construction and Building Materials, 207, 329-337. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2019.02.125)
+
+
 
 ####  Conference Papers
 
