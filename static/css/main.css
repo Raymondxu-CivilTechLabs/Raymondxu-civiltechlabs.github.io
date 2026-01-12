@@ -1,25 +1,26 @@
-@import "./styles.css";
+@import "./styles.css";       /* 引入基础样式 从外部文件加载基础样式表，实现代码模块化。*/
 
 
 :root{
-    --h-title-color:#24306b;
+    --h-title-color:#24306b;      /* 深蓝色标题 通常用于定义全局 CSS 变量  定义一个名为“标题颜色”的变量，方便全站统一修改颜色，值为一种深蓝色。*/
 }
 
 .header {
-    border-bottom: solid 2px var(--bs-blue);
+    border-bottom: solid 2px var(--bs-blue);         /* 定义标题下划线颜色  给头部下方添加一条 2px 宽的实线。颜色引用了 var(--bs-blue)（通常来自 Bootstrap 框架）*/
     z-index: 10000;
 }
 
+
 .bg-bottom {
-    background-color: var(--h-title-color);
+    background-color: var(--h-title-color);         /* 定义底部背景颜色 */
 }
 
 .top-section {
-    position: relative;
-    padding: 10rem 0;
-    background-position: center;
-    background-size: cover;
-    height: 40rem;
+    position: relative;        /* 相对定位，作为子元素绝对定位的基准 */
+    padding: 10rem 0;          /* 上下内边距 10rem（约160px），增加呼吸感 */
+    background-position: center; /* 背景图片居中 */
+    background-size: cover;    /* 背景图等比缩放至覆盖整个容器 */
+    height: 40rem;             /* 固定高度 40rem */
 }
 
 .top-section h2 {
@@ -31,29 +32,26 @@
     z-index: 1;
 }
 
-.top-section:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+.top-section:before {                   /* 在背景图上压一层“暗色滤镜”，目的是让上面的白色文字更清晰，这是 UI 设计中的常用方案 */
+    content: "";               /* 伪元素必须包含 content */
+    position: absolute;        /* 绝对定位，覆盖整个父容器 */
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 黑色半透明遮罩（透明度0.5） */
 }
 
 section header h2{
     font-family:  "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
-    color: var(--h-title-color);
-    font-size: 2.5rem;
-    line-height: 1.2;
-    font-weight: 700;
-    margin-bottom: 1.8rem;
+    color: var(--h-title-color);          /* 标题颜色 */
+    font-size: 2.5rem;                   /* 字体大小 */
+    line-height: 1.2;                    /* 行高，1.2倍字号 */
+    font-weight: 700;                    /* 粗体 */
+    margin-bottom: 1.8rem;               /* 下方间距 */
 }
 
 section .main-body{
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.5rem;
+    font-size: 1.5rem;   /* 正文字号 */
+    font-weight: 400;    /* 常规粗细 */
+    line-height: 1.5rem; /* 行高与字号一致（注：通常建议行高略大于字号以增加易读性） */
 }
 
 
