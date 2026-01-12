@@ -2,11 +2,11 @@
 
 ####  Academic Papers
 
-- <strong>X. Xu<strong>, S. Cui*, Z. Cao, S. Zhang, J. W. W. Ju*, P. Liu, & X. Wang (2023). Study on the interfacial bonding performance of basalt ultra-high performance concrete repair and reinforcement materials under severe service environment. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2023.132624) ![Citations](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/paper/https://doi.org/10.1016/j.conbuildmat.2023.132624?fields=citationCount&query=$.citationCount&label=Citations&color=informational)
+- X. Xu, S. Cui*, Z. Cao, S. Zhang, J. W. W. Ju*, P. Liu, & X. Wang (2023). Study on the interfacial bonding performance of basalt ultra-high performance concrete repair and reinforcement materials under severe service environment. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2023.132624) ![Citations](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/paper/https://doi.org/10.1016/j.conbuildmat.2023.132624?fields=citationCount&query=$.citationCount&label=Citations&color=informational)
 
 
 
-- <strong>X. Xu<strong>, L. Xu, G. Zeng, S. Cui*, & X. Wang*. Effect of different fiber sizing on basalt fiber-reinforced cement-based materials at low temperature: From macro mechanical properties to microscopic mechanism. Construction and Building Materials.[[Paper]](https://doi.org/10.1016/j.conbuildmat.2023.131773)
+- X. Xu, L. Xu, G. Zeng, S. Cui*, & X. Wang*. Effect of different fiber sizing on basalt fiber-reinforced cement-based materials at low temperature: From macro mechanical properties to microscopic mechanism. Construction and Building Materials.[[Paper]](https://doi.org/10.1016/j.conbuildmat.2023.131773)
 
 - <strong>X. Xu<strong>, Z. Chen, G. Zeng, Q. Ouyang, S. Cui*, & G. Li. Effect of different sizing agent-treated basalt fibers on bending and cracking performance of reinforced BFRC beams. Construction and Building Materials. [[Paper]](https://doi.org/10.1016/j.conbuildmat.2022.130037)
 
