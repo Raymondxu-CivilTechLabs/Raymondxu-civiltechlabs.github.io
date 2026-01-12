@@ -1,21 +1,15 @@
 
 
 [![Xuefeng Xu](https://img.shields.io/badge/Raymondxu-CivilTechLabs-blue?logo=github)](https://github.com/Raymondxu-CivilTechLabs)
+![Total Citations](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=citationCount&query=$.citationCount&label=Total%20Citations&color=blue)
+![Papers](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=paperCount&query=$.paperCount&label=Papers&color=green)
+![h-index](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=hIndex&query=$.hIndex&label=h-index&color=purple)
 
-He is currently a joint traning ph.D in the Department of civil engineering (DICA) at politecnico di milano.
 
-#### Contact
+<strong>About Me:</strong> 
 
-Email: raymond_xu[at]my.swjtu.edu.cn\
-Email: xuefeng.xu[at]mail.polimi.it
+I am currently pursuing a joint training Ph.D. in the Department of Civil Engineering (DICA) at Politecnico di Milano, while also advancing my Ph.D. in Structural Engineering at Southwest Jiaotong University. My academic journey has taken me from a Master’s in Architecture and Civil Engineering at Southwest Jiaotong University to tackling complex, multi-scale challenges in civil materials and intelligent construction.
 
-#### Education
+Beyond the lab and the numbers, I am deeply fascinated by the intersection of civil engineering and machine learning, exploring how data-driven approaches can transform the way we design, analyze, and build our infrastructure. I thrive on solving challenging engineering problems while embracing innovation and creativity.
 
-Joint training ph.D., Civil Engineering, Politecnico di Milano, 2025—present.\
-Ph.D., Structural Engineering, Southwest Jiaotong University, 2021—present.\
-M.E., Architecture and Civil Engineering, Southwest Jiaotong University, 2018—2021.
-
-#### Research Interests
-
-Machine Learning; Civil Materials; Intelligent Construction; Multi-scale Performance Analysis.
-
+Being a globally minded researcher, I enjoy connecting with people across cultures and disciplines, believing that collaboration and diverse perspectives are key to pushing boundaries in science and technology. I am passionate about contributing to a community where knowledge, curiosity, and human connections drive progress.
