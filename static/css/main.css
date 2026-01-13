@@ -113,4 +113,55 @@ section .main-body{
     }
 }
 
+/* =========================
+   Email toggle + copy
+   ========================= */
 
+.email-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 0;
+}
+
+.email-icon {
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--h-title-color);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.email-icon:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
+.email-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    color: var(--h-title-color);
+    cursor: pointer;
+}
+
+/* 复制成功提示 */
+.email-text.copied::after {
+    content: "  ✔ Copied";
+    font-size: 0.95rem;
+    color: #2e7d32;
+    margin-left: 0.4rem;
+}
+
+.email-item {
+    cursor: pointer;
+}
+
+.email-item:hover {
+    text-decoration: underline;
+}
+.email-item.copied::after {
+    content: "  ✔ Copied";
+    font-size: 0.95rem;
+    color: #2e7d32;
+    margin-left: 0.4rem;
+}
