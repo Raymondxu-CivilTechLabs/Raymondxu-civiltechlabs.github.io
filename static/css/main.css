@@ -50,8 +50,8 @@ section header h2{
 
 section .main-body{
     font-size: 1.5rem;   /* 正文字号 */
-    font-weight: 400;    /* 常规粗细 */
-    line-height: 1.5rem; /* 行高与字号一致（注：通常建议行高略大于字号以增加易读性） */
+    font-weight: 200;    /* 常规粗细 */
+    line-height: 2rem; /* 行高与字号一致（注：通常建议行高略大于字号以增加易读性） */
 }
 
 
