@@ -113,17 +113,17 @@
     font-size: 0.95rem;            /* 稍大字体 */
     font-weight: 500;              /* 加粗 */
     transition: all 0.2s ease;
-    text-decoration: none;
+    text-decoration: none !important; /* 重点：禁止下划线 */
 }
 
 .social-link i {
     margin-right: 0.5rem;          /* 图标和文字间距 */
     font-size: 1rem;               /* 图标大小 */
-    text-decoration: none;
+    text-decoration: none !important; /* 重点：禁止下划线 */
 }
 
 .social-link:hover {
     background-color: #e0e0e0;    /* 悬停颜色 */
     transform: translateY(-2px);   /* 悬停微动画 */
-    text-decoration: none;  
+    text-decoration: none !important; /* 重点：禁止下划线 */
 }
