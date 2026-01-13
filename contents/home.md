@@ -1,9 +1,9 @@
 
 
 [![Xuefeng Xu](https://img.shields.io/badge/Raymondxu-CivilTechLabs-blue?logo=github)](https://github.com/Raymondxu-CivilTechLabs)
-![Total Citations](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=citationCount&query=$.citationCount&label=Total%20Citations&color=blue)
-![Papers](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=paperCount&query=$.paperCount&label=Papers&color=green)
-![h-index](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2040894696?fields=hIndex&query=$.hIndex&label=h-index&color=purple)
+![Total Citations](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2291872965?fields=citationCount&query=$.citationCount&label=Total%20Citations&color=blue)
+![Papers](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2291872965?fields=paperCount&query=$.paperCount&label=Papers&color=green)
+![h-index](https://img.shields.io/badge/dynamic/json?url=https://api.semanticscholar.org/graph/v1/author/2291872965?fields=hIndex&query=$.hIndex&label=h-index&color=purple)
 
 #### About Me:
 
