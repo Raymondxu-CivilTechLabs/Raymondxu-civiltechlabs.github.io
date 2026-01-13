@@ -1,0 +1,5 @@
+I am currently pursuing a joint training Ph.D. in the Department of Civil Engineering (DICA) at Politecnico di Milano, while also advancing my Ph.D. in Structural Engineering at Southwest Jiaotong University. My academic journey has taken me from a Master’s in Architecture and Civil Engineering at Southwest Jiaotong University to tackling complex, multi-scale challenges in civil materials and intelligent construction.
+
+Beyond the lab and the numbers, I am deeply fascinated by the intersection of civil engineering and machine learning, exploring how data-driven approaches can transform the way we design, analyze, and build our infrastructure. I thrive on solving challenging engineering problems while embracing innovation and creativity.
+
+Being a globally minded researcher, I enjoy connecting with people across cultures and disciplines, believing that collaboration and diverse perspectives are key to pushing boundaries in science and technology. I am passionate about contributing to a community where knowledge, curiosity, and human connections drive progress.
