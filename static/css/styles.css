@@ -10883,7 +10883,7 @@ section {
   background-color: #fff;
 }
 #mainNav .navbar-brand {
-  font-family: 'Times New Roman', Times, serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand:hover, #mainNav .navbar-brand:active {
   color: #2937f0;
