@@ -16,7 +16,7 @@ if (fs.existsSync(newsFile)) {
     .filter(line => line.length > 0);
 }
 
-// 生成已存在条目的 key 集合，避免重复
+// 生成 key 集合，避免重复
 const existingKeys = new Set(
   existingNews.map(line => {
     const match = line.match(/\((.*?)\.html#(.*?)\)/);
@@ -28,7 +28,7 @@ const existingKeys = new Set(
 function getTitleFromMD(filePath) {
   const content = fs.readFileSync(filePath, "utf-8");
   const parsed = matter(content);
-  let title = parsed.data.title || null;
+  let title = parsed.data.title;
   if (!title) {
     const lines = content.split("\n");
     const h1Line = lines.find(line => line.startsWith("# "));
@@ -37,17 +37,24 @@ function getTitleFromMD(filePath) {
   return title;
 }
 
-// 获取日期
+// 获取日期，返回 YYYY-MM
 function getDateFromMD(filePath) {
   const content = fs.readFileSync(filePath, "utf-8");
   const parsed = matter(content);
-  let date = parsed.data.date || null;
+  let date = parsed.data.date;
+
   if (!date) {
     const stats = fs.statSync(filePath);
-    const mtime = stats.mtime;
-    date = mtime.toISOString().split("T")[0]; // yyyy-mm-dd
+    date = stats.mtime;
   }
-  return date;
+
+  if (typeof date === "string") {
+    return date.slice(0, 7); // YYYY-MM
+  } else if (date instanceof Date) {
+    return date.toISOString().slice(0, 7); // YYYY-MM
+  } else {
+    return new Date().toISOString().slice(0, 7);
+  }
 }
 
 // 收集新增条目
@@ -65,19 +72,19 @@ sections.forEach(section => {
     const fileKey = `${section}/${path.basename(file, ".md")}`;
 
     if (!existingKeys.has(fileKey)) {
-      const yearMonth = date.slice(0, 7); // yyyy-mm
       const relativeLink = `${section}.html#${path.basename(file, ".md")}`;
-      const line = `- **${yearMonth}** — [${title}](${relativeLink})`;
-      newEntries.push({ line, date });
+      const line = `- **${date}** — [${title}](${relativeLink})`;
+      newEntries.push({ line, date, key: fileKey });
     }
   });
 });
 
-// 按日期倒序追加到 news.md
+// 将新条目按日期倒序，放在 news.md 顶部
 if (newEntries.length > 0) {
   newEntries.sort((a, b) => b.date.localeCompare(a.date));
-  const contentToAppend = "\n" + newEntries.map(e => e.line).join("\n") + "\n";
-  fs.appendFileSync(newsFile, contentToAppend, "utf-8");
+  const existingContent = existingNews.join("\n");
+  const contentToWrite = newEntries.map(e => e.line).join("\n") + "\n" + existingContent + "\n";
+  fs.writeFileSync(newsFile, contentToWrite, "utf-8");
   console.log(`Added ${newEntries.length} new entries to news.md`);
 } else {
   console.log("No new entries to add.");
