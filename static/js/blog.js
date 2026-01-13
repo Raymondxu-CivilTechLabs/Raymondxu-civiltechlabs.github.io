@@ -1,72 +1,118 @@
-// blog.js
-document.addEventListener("DOMContentLoaded", async function () {
-    const blogContainer = document.getElementById("blog-md");
-    if (!blogContainer) return;
+// ======================
+// 博客文章列表配置
+// ======================
+const posts = [
+    {id: 'post1', title: 'First Blog Post', date: '2026-01-13', category: 'Research'},
+    {id: 'post2', title: 'Second Blog Post', date: '2026-01-10', category: 'Teaching'},
+    {id: 'post3', title: 'Third Blog Post', date: '2026-01-05', category: 'Research'},
+    {id: 'post4', title: 'Fourth Blog Post', date: '2026-01-02', category: 'Research'},
+    {id: 'post5', title: 'Fifth Blog Post', date: '2025-12-30', category: 'Teaching'},
+    // 可以继续添加
+];
 
-    // 读取 blog 配置
-    const res = await fetch("contents/blog/blog-config.yml");
-    const yamlText = await res.text();
-    const config = jsyaml.load(yamlText);
+// ======================
+// 配置分页
+// ======================
+const POSTS_PER_PAGE = 3;
 
-    let posts = config.posts;
+// ======================
+// 工具函数：获取 URL 参数
+// ======================
+function getQueryParam(name) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(name);
+}
 
-    // 按时间倒序
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+// ======================
+// 渲染博客列表
+// ======================
+function renderBlogList(page = 1, filterCategory = 'All') {
+    const container = document.getElementById('blog-list');
+    container.innerHTML = '';
 
-    // 分类筛选（可选）
-    const filterCategory = new URLSearchParams(window.location.search).get("category");
-    if (filterCategory) {
-        posts = posts.filter(p => p.category === filterCategory);
+    // 先按分类过滤
+    let filteredPosts = posts;
+    if(filterCategory !== 'All') {
+        filteredPosts = posts.filter(p => p.category === filterCategory);
     }
 
-    // 分页设置
-    const POSTS_PER_PAGE = 5;
-    const page = parseInt(new URLSearchParams(window.location.search).get("page")) || 1;
-    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+    // 计算分页
+    const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
     const start = (page - 1) * POSTS_PER_PAGE;
     const end = start + POSTS_PER_PAGE;
-    const postsToShow = posts.slice(start, end);
+    const postsToShow = filteredPosts.slice(start, end);
 
-    // 渲染文章列表
-    blogContainer.innerHTML = "";
+    // 生成列表
     postsToShow.forEach(post => {
-        const postEl = document.createElement("div");
-        postEl.className = "blog-item mb-3";
-
-        postEl.innerHTML = `
-            <h5><a href="blog.html?id=${post.id}" class="text-decoration-none">${post.title}</a></h5>
-            <p class="text-muted mb-1">${post.date} | ${post.category}</p>
-            ${post.summary ? `<p>${post.summary}</p>` : ""}
+        const div = document.createElement('div');
+        div.className = 'blog-item mb-4 p-3 border rounded shadow-sm';
+        div.innerHTML = `
+            <h3><a href="blog.html?id=${post.id}">${post.title}</a></h3>
+            <p class="text-muted">${post.date} | Category: ${post.category}</p>
         `;
-        blogContainer.appendChild(postEl);
+        container.appendChild(div);
     });
 
-    // 分页导航
-    const pagination = document.createElement("div");
-    pagination.className = "pagination mt-4";
-
-    for (let i = 1; i <= totalPages; i++) {
-        const pageLink = document.createElement("a");
-        pageLink.href = `?page=${i}${filterCategory ? "&category=" + filterCategory : ""}`;
-        pageLink.className = `btn btn-outline-primary me-2 ${i === page ? "active" : ""}`;
-        pageLink.textContent = i;
-        pagination.appendChild(pageLink);
+    // 分页按钮
+    const paginationDiv = document.createElement('div');
+    paginationDiv.className = 'pagination mt-4';
+    for(let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-sm btn-outline-primary me-2';
+        btn.textContent = i;
+        if(i === page) btn.disabled = true;
+        btn.onclick = () => renderBlogList(i, filterCategory);
+        paginationDiv.appendChild(btn);
     }
+    container.appendChild(paginationDiv);
+}
 
-    blogContainer.appendChild(pagination);
+// ======================
+// 渲染分类筛选按钮
+// ======================
+function renderCategoryFilter() {
+    const container = document.createElement('div');
+    container.className = 'category-filter mb-4';
+    const categories = ['All', ...new Set(posts.map(p => p.category))];
 
-    // 分类筛选按钮
-    const categories = [...new Set(config.posts.map(p => p.category))];
-    const filterDiv = document.createElement("div");
-    filterDiv.className = "blog-filters mb-3";
     categories.forEach(cat => {
-        const btn = document.createElement("button");
-        btn.className = "btn btn-sm btn-secondary me-2";
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-sm btn-secondary me-2 mb-2';
         btn.textContent = cat;
-        btn.onclick = () => {
-            window.location.href = `?category=${encodeURIComponent(cat)}`;
-        };
-        filterDiv.appendChild(btn);
+        btn.onclick = () => renderBlogList(1, cat);
+        container.appendChild(btn);
     });
-    blogContainer.prepend(filterDiv);
-});
+
+    const blogList = document.getElementById('blog-list');
+    blogList.parentNode.insertBefore(container, blogList);
+}
+
+// ======================
+// 渲染单篇文章
+// ======================
+function renderSinglePost(postId) {
+    const post = posts.find(p => p.id === postId);
+    if(post) {
+        fetch(`contents/blog/${post.id}.md`)
+            .then(res => res.text())
+            .then(md => {
+                const container = document.getElementById('blog-list');
+                container.innerHTML = `<h2>${post.title}</h2>
+                                        <p class="text-muted">${post.date} | Category: ${post.category}</p>
+                                        <hr>${marked.parse(md)}`;
+            });
+    } else {
+        document.getElementById('blog-list').innerHTML = `<p>Post not found.</p>`;
+    }
+}
+
+// ======================
+// 页面初始化
+// ======================
+const postId = getQueryParam('id');
+if(postId) {
+    renderSinglePost(postId);
+} else {
+    renderCategoryFilter();
+    renderBlogList();
+}

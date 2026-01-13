@@ -5,6 +5,7 @@ posts:
     category: "知识分享"
     summary: "介绍如何把个人网站做成模块化，便于维护。"
     file: "post1.md"
+
   - id: post2
     title: "周末跑步总结"
     date: "2026-01-10"
