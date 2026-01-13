@@ -1,6 +1,6 @@
 
 
-const content_dir = 'contents/'
+const content_dir = 'contents/home/'
 const config_file = 'config.yml'
 const section_names = ['home','biography', 'publications', 'awards', 'projects']
 

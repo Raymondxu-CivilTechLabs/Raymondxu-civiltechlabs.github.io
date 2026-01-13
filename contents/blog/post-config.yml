@@ -1,0 +1,13 @@
+posts:
+  - id: post1
+    title: "如何实现模块化网站"
+    date: "2026-01-13"
+    category: "知识分享"
+    summary: "介绍如何把个人网站做成模块化，便于维护。"
+    file: "post1.md"
+  - id: post2
+    title: "周末跑步总结"
+    date: "2026-01-10"
+    category: "运动"
+    summary: "记录我的跑步训练计划与心得。"
+    file: "post2.md"

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xuefeng Xu | Academic Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 容器样式 */
+        .container {
+            background: white;
+            min-height: 100vh;
+            padding: 60px 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        /* 顶部信息区域 */
+        .header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .chinese-name {
+            font-size: 1.8rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            background: #f0f7ff;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid #e1f0ff;
+        }
+        
+        .email-link:hover {
+            background: #e1f0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 204, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #495057;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .social-link:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .social-icon {
+            font-size: 1.2rem;
+        }
+        
+        .social-icon.github {
+            color: #333;
+        }
+        
+        .social-icon.scholar {
+            color: #4285f4;
+        }
+        
+        /* 分隔线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ddd, transparent);
+            margin: 40px 0;
+        }
+        
+        /* 内容区域 */
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8e8e8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #4a6fa5;
+        }
+        
+        .biography-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+        
+        /* 新闻列表 */
+        .news-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .news-item {
+            margin-bottom: 22px;
+            padding-left: 24px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        .news-item:before {
+            content: "•";
+            color: #4a6fa5;
+            font-size: 1.8rem;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+        
+        .news-date {
+            font-weight: 600;
+            color: #2c3e50;
+            display: inline-block;
+            min-width: 70px;
+        }
+        
+        .news-content {
+            color: #555;
+            display: inline;
+        }
+        
+        /* 底部信息 */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .chinese-name {
+                font-size: 1.5rem;
+            }
+            
+            .email-link {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .social-link {
+                width: 220px;
+                justify-content: center;
+            }
+            
+            .biography-content {
+                font-size: 1rem;
+                text-align: left;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 1.9rem;
+            }
+            
+            .chinese-name {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .news-item {
+                padding-left: 20px;
+            }
+            
+            .news-date {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+        
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            
+            .social-link, .email-link:hover {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            .footer {
+                display: none;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header, .section {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <div class="header">
+            <h1 class="name">Xuefeng Xu</h1>
+            <div class="chinese-name">许雪峰</div>
+            
+            <div class="contact-info">
+                <a href="mailto:xuefeng.xu@warwick.ac.uk" class="email-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>xuefeng.xu@warwick.ac.uk</span>
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/xuefeng-xu" target="_blank" class="social-link">
+                    <i class="fab fa-github social-icon github"></i>
+                    <span>GitHub</span>
+                </a>
+                
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" class="social-link">
+                    <i class="fas fa-graduation-cap social-icon scholar"></i>
+                    <span>Google Scholar</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 分隔线 -->
+        <div class="divider"></div>
+        
+        <!-- Biography 部分 -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user-graduate"></i>
+                Biography
+            </h2>
+            <div class="biography-content">
+                I am a Ph.D. student in Computer Science at the University of Warwick, co-supervised by Graham Cormode and Hakan Ferhatosmanoglu. My research interests are privacy-preserving algorithms, particularly in the context of privacy-preserving machine learning. Previously, I received my M.E. from Beihang University and B.E. from Jilin University.
+            </div>
+        </div>
+        
+        <!-- News 部分 -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-newspaper"></i>
+                News
+            </h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">09/2025:</span>
+                    <span class="news-content">Volunteer at VLDB Conference 2025</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">08/2025:</span>
+                    <span class="news-content">Poster presentation at CISPA - ELLIS Summer School 2025</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">03/2025:</span>
+                    <span class="news-content">Online talk at Flower AI Summit 2025</span>
+                </li>
+                <li class="news-item">
+                    <span class="news-date">02/2025:</span>
+                    <span class="news-content">Lightning talk at Privacy in Machine Learning Meetup</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>© 2025 Xuefeng Xu. Last updated: October 2025</p>
+            <p style="margin-top: 5px; font-size: 0.85rem; color: #aaa;">
+                Academic Homepage
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // 简单的交互功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为邮箱链接添加复制功能（可选）
+            const emailLink = document.querySelector('.email-link');
+            emailLink.addEventListener('click', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    // 如果按住Ctrl/Cmd键点击，允许默认行为（打开邮件客户端）
+                    return;
+                }
+                
+                // 否则询问是否复制到剪贴板
+                e.preventDefault();
+                const email = 'xuefeng.xu@warwick.ac.uk';
+                
+                if (confirm('Copy email address to clipboard?')) {
+                    navigator.clipboard.writeText(email).then(() => {
+                        // 临时改变链接文本显示复制成功
+                        const originalHTML = emailLink.innerHTML;
+                        emailLink.innerHTML = '<i class="fas fa-check"></i><span>Copied to clipboard!</span>';
+                        
+                        setTimeout(() => {
+                            emailLink.innerHTML = originalHTML;
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        // 如果复制失败，恢复默认邮件链接行为
+                        window.location.href = 'mailto:' + email;
+                    });
+                } else {
+                    // 用户取消，恢复默认邮件链接行为
+                    window.location.href = 'mailto:' + email;
+                }
+            });
+            
+            // 平滑滚动效果（如果有锚点链接）
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

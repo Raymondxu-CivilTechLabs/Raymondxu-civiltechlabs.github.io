@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Academic Webpage" />
+    <meta name="author" content="Xuefeng Xu" />
+    <title>Blog</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+
+    <!-- Bootstrap icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&family=Mulish:ital,wght@0,300;0,500;0,600;0,700&family=Kanit:ital,wght@0,400;1,400&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Core CSS -->
+    <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
+    <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+
+    <!-- JS -->
+    <script src="static/js/marked.min.js"></script>
+    <script src="static/js/js-yaml.min.js"></script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation (复用 index.html 导航栏) -->
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+        <div class="container px-5">
+            <a id="page-top-title" class="navbar-brand fw-bold" href="index.html"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                MENU
+                <i class="bi-list"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="index.html#home">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="index.html#blog">BLOG</a></li>
+                    <li class="nav-item"><a class="nav-link me-lg-3" href="index.html#about">ABOUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Content -->
+    <section class="bg-gradient-primary-to-secondary-light mt5 md5">
+        <div class="container px-5 mt-5">
+            <header>
+                <h2 id="blog-title" class="mb-4"></h2>
+            </header>
+            <div id="blog-content" class="main-body"></div>
+            <a href="index.html#blog" class="btn btn-outline-primary mt-4">← Back to Blog List</a>
+        </div>
+    </section>
+
+    <!-- Footer (复用 index.html footer) -->
+    <footer class="bg-bottom text-center py-5 mt-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2"></div>
+                <a id="github-link" href="https://github.com/Raymondxu-CivilTechLabs">Github</a>
+                <span class="mx-1">&middot;</span>
+                <a id="license-link" href="https://github.com/Raymondxu-CivilTechLabs/Raymondxu-civiltechlabs.github.io/blob/main/LICENSE">License</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS 渲染 Markdown -->
+    <script>
+        async function renderBlog() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            // 读取 blog-config.yml
+            const resConfig = await fetch('contents/blog/blog-config.yml');
+            const yamlText = await resConfig.text();
+            const config = jsyaml.load(yamlText);
+
+            // 找到对应 post
+            const post = config.posts.find(p => p.id === postId);
+            if (!post) {
+                document.getElementById('blog-title').textContent = "Post not found";
+                document.getElementById('blog-content').innerHTML = "<p>抱歉，文章不存在或已删除。</p>";
+                return;
+            }
+
+            document.getElementById('blog-title').textContent = post.title;
+
+            // 读取 Markdown 内容
+            const resMd = await fetch(`contents/blog/${post.file}`);
+            const md = await resMd.text();
+            document.getElementById('blog-content').innerHTML = marked.parse(md);
+        }
+
+        renderBlog();
+    </script>
+</body>
+
+</html>
