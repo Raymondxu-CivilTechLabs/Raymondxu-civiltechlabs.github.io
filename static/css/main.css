@@ -188,24 +188,25 @@ section .main-body{
 /* 中英文切换按钮 */
 .lang-switch button {
   font-size: 0.75rem;
+  color: #7b7c7d;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
 }
 .lang-switch button.active {
-  background-color: #3948d2;
+  background-color: #797979;
   color: #fff;
 }
 
 /* 社交图标 */
-/* .nav-social-links .social-icon i {
+.nav-social-links .social-icon i {
   font-size: 1rem;
-  color: #24306b;
+  color: #7b7c7d;
   transition: all 0.2s ease;
 }
 .nav-social-links .social-icon:hover i {
-  color: #3948d2;
-} */
+  color: #858587;
+}
 
 /* 小屏幕响应式 */
 @media (max-width: 991px) {

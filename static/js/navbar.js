@@ -32,11 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- 中英文切换 -->
             <div class="lang-switch d-flex gap-1 me-2">
               <button class="btn btn-sm btn-outline-secondary active" data-lang="en">EN</button>
-              <button class="btn btn-sm btn-outline-secondary" data-lang="zh">中</button>
+              <button class="btn btn-sm btn-outline-secondary" data-lang="zh">CN</button>
             </div>
-
-            
-
           </li>
         </ul>
       </div>

@@ -46,7 +46,7 @@
 
   <!-- ===== Home Content ===== -->
   <section class="bg-gradient-primary-to-secondary-light mt5 md5">
-    <div class="container px-5 text-center" style="max-width: 900px;">
+    <div class="container px-5 text-center" >
 
       <!-- ===== Part 1: Profile ===== -->
       <div id="home-profile" class="mb-5">
@@ -64,46 +64,73 @@
         <div class="profile-divider"></div>
 
         
-        <p class="social-links">
-          <a href="https://github.com/Raymondxu-CivilTechLabs" target="_blank" class="social-link">
-            <i class="bi bi-github"></i> GitHub
-          </a>
-          <a href="https://scholar.google.com/" target="_blank" class="social-link">
-            <i class="bi bi-mortarboard"></i> Google Scholar
-        </a>
-        </p>
+          <p class="social-links">
+            <a href="https://github.com/Raymondxu-CivilTechLabs" target="_blank" class="social-link">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://scholar.google.com/" target="_blank" class="social-link">
+              <i class="bi bi-mortarboard"></i> Google Scholar
+            </a>
+          </p>
+        
+
+          <!-- ===== Part 2 + Part 3: About & News (Side by Side) ===== -->
+        <div class="row g-5 mt-4">
+
+          <!-- ===== Left: Biography ===== -->
+          <div class="col-md-6">
+            <div id="home-biography" class="text-start">
+              <h3 class="mb-3 text-center">About Me</h3>
+            <div id="aboutme-md"></div>
+          </div>
+        </div>
+
+          <!-- ===== Right: News ===== -->
+          <div class="col-md-6">
+            <div id="home-news" class="text-start">
+              <h3 class="mb-3 text-center">News</h3>
+              <ul id="news-md" class="list-unstyled"></ul> <!-- 将 news-md 改成 ul 方便插入 li -->
+              <div id="news-more" style="text-align:right; cursor:pointer; color:#3948d2; font-weight:600; display:none;">—More</div>
+            </div>
+          </div>
+
       </div>
+
+    </div>
+
+
 
       <!-- ===== Part 2: Biography ===== -->
-      <div id="home-biography" class="mb-5 text-start">
+      <!-- <div id="home-biography" class="mb-5 text-start">
         <h3 class="mb-3 text-center">About Me</h3>
         <div id="aboutme-md"></div>
-      </div>
+      </div> -->
 
       <!-- ===== Part 3: News ===== -->
-      <div id="home-news" class="mb-5 text-start">
+      <!-- <div id="home-news" class="mb-5 text-start">
         <h3 class="mb-3 text-center">News</h3>
         <div id="news-md"></div>
+      </div> -->
       </div>
-
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-bottom text-center py-5">
-    <div class="container px-5">
-      <div class="text-white-50 small">
-        <div id="copyright-text" class="mb-2"></div>
-        <a href="https://github.com/Raymondxu-CivilTechLabs">Github</a>
-        <span class="mx-1">&middot;</span>
-        <a href="https://github.com/Raymondxu-CivilTechLabs/Raymondxu-civiltechlabs.github.io/blob/main/LICENSE">License</a>
-      </div>
-    </div>
-  </footer>
+    <!-- Footer-->
+    <footer class="bg-bottom text-center py-5">
+        <div class="container px-5">
+            <div class="text-white-50 small">
+                <div id="copyright-text" class="mb-2">© Xuefeng Xu 2021-2026. All Rights Reserved.</div>
+                <div id="copyright-text" class="mb-2" ><a href="about.html#biography">contact me</a></div>
+                <a id="github-link" href="https://github.com/Raymondxu-CivilTechLabs">Github</a>
+                <span class="mx-1">&middot;</span>
+                <a id="license-link" href="https://github.com/Raymondxu-CivilTechLabs/Raymondxu-civiltechlabs.github.io/blob/main/LICENSE">License</a>
+            </div>
+        </div>
+    </footer>
 
-  <!-- JS -->
-  <script src="static/js/navbar.js"></script>
-  <script src="static/js/home.js"></script>
+      <!-- JS -->
+      <script src="static/js/navbar.js"></script>
+      <script src="static/js/home.js"></script>
 
 </body>
 

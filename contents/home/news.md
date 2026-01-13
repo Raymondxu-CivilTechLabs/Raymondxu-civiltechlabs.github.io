@@ -5,3 +5,5 @@
 - **2024-09** — Website launched[Interests](interests.html#interests)
 
 
+
+[Tue Jan 13 2026 01:00:00 GMT+0100 (Central European Standard Time) - New Smart Concrete Project](blog.html#post1)

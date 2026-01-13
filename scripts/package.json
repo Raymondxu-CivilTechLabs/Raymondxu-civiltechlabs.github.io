@@ -1,0 +1,12 @@
+{
+  "name": "my_github_page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-news": "node build-news.js"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
