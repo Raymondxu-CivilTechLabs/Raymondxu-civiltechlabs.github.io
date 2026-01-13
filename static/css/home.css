@@ -81,3 +81,45 @@
     text-decoration: underline;
     color: #3948d2;
 }
+
+
+/* ===== Profile Divider ===== */
+.profile-divider {
+    width: 40%;               /* 横线长度，可调 */
+    height: 1.5px;              /* 横线粗细，可调 */
+    background-color: #d3d3d3; /* 浅灰色，可调 */
+    margin: 0.5rem auto 0.5rem auto; /* 上下间距，可调 */
+    border-radius: 1px;       /* 可选，圆角边 */
+}
+
+
+/* ===== Social Links Style ===== */
+.social-links {
+    display: flex;           /* 横向排列 */
+    justify-content: center; /* 居中对齐 */
+    gap: 1rem;               /* 链接间距 */
+}
+
+.social-link {
+    display: inline-flex;    /* 图标和文字横向排列 */
+    align-items: center;     /* 垂直居中 */
+    padding: 0.4rem 0.8rem;  /* 内边距 可调节 */
+    border-radius: 12px;     /* 圆角 */
+    border: 2px solid #24306b;
+    background-color: #000000; /* 方框背景色，可调 */
+    color: #24306b;          /* 字体颜色，可调 */
+    text-decoration: none;   /* 去掉下划线 */
+    font-size: 0.8rem;        /* 字体大小 */
+    font-weight: 500;        /* 可选字体加粗 */
+    transition: all 0.2s ease; /* 鼠标悬停动画 */
+}
+
+.social-link i {
+    margin-right: 0.4rem;    /* 图标和文字间距 */
+    font-size: 1rem;         /* 图标大小 */
+}
+
+.social-link:hover {
+    background-color: #e0e0e0; /* 悬停背景色 */
+    transform: translateY(-2px); /* 悬停微动画 */
+}
