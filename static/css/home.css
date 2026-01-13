@@ -15,6 +15,7 @@
 }
 
 #home-profile h2 {
+    font-family: "Cambria", "Mulish", "Kanit", sans-serif; /* 字体 */
     font-size: 2rem;
     font-weight: 700;
     margin-top: 0.5rem;
@@ -32,6 +33,7 @@
 
 /* About Me */
 #home-biography h3 {
+    font-family: "Cambria", "Mulish", "Kanit", sans-serif; /* 字体 */
     font-size: 1.5rem;
     color: #24306b;
 }
@@ -44,6 +46,7 @@
 
 /* News */
 #home-news h3 {
+    font-family: "Cambria", "Mulish", "Kanit", sans-serif; /* 字体 */
     font-size: 1.5rem;
     color: #24306b;
 }
