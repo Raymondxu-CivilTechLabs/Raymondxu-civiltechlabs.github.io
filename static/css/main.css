@@ -165,3 +165,57 @@ section .main-body{
     color: #2e7d32;
     margin-left: 0.4rem;
 }
+
+
+/* ===== 右侧导航功能区 ===== */
+/* 右侧导航整体靠右 */
+#navbar-right-section {
+  margin-left: auto;           /* 关键：把右侧部分推到最右边 */
+  align-items: center;
+  gap: 0.5rem;                 /* 三部分间距，可调 */
+}
+
+/* 搜索框 */
+#nav-search-input {
+  width: 120px;                /* 宽度可调 */
+  font-size: 0.85rem;          /* 字体大小 */
+}
+#nav-search-form button {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* 中英文切换按钮 */
+.lang-switch button {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.lang-switch button.active {
+  background-color: #3948d2;
+  color: #fff;
+}
+
+/* 社交图标 */
+/* .nav-social-links .social-icon i {
+  font-size: 1rem;
+  color: #24306b;
+  transition: all 0.2s ease;
+}
+.nav-social-links .social-icon:hover i {
+  color: #3948d2;
+} */
+
+/* 小屏幕响应式 */
+@media (max-width: 991px) {
+  #navbar-right-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  #nav-search-input {
+    width: 100px;
+  }
+}
