@@ -1,12 +1,19 @@
 
-- Outstanding Graduate Award (CUMT), 2025.
+- Outstanding Excellent doctoral students Award (SWJTU), 2023
 
-- National Scholarship for Graduate Students (Ministry of Education, China), 2024.
+- Special Scholarship Endowed by China Harbour Engineering Company, 2022
 
-- First-Prize Graduate Academic Scholarship (CUMT), 2023 & 2024.
+- Excellent Doctoral Admission Scholarship, 2021
 
-- Outstanding Undergraduate Thesis Award (Jiangsu, China), 2022.
+- Outstanding Excellent Master's students Award (SWJTU), 2020
 
-- First-Prize Corporate Scholarship (CUMT), 2020.
+- Excellent Master's Graduates (Sichuan, China), 2020.
 
-- First-Prize Undergraduate Academic Scholarship (CUMT), 2019.
+- National Scholarship for Graduate Students (Ministry of Education, China), 2016.
+
+- First-Prize Graduate Doctoral Academic Scholarship (SWJTU), 2021~2025.
+
+- First-Prize Graduate Master's Academic Scholarship (SWJTU), 2018~2021.
+
+
+
