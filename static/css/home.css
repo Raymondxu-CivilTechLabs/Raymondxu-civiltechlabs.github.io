@@ -47,10 +47,9 @@
 /* News */
 #home-news h3 {
     font-family: Kanit, "Cambria", "Mulish",  sans-serif; /* 字体 */
-    font-size:2rem;
+    font-size:1.5rem;
     color: #24306b;
-    margin-top: -3rem;        /* 👈 关键 */
-    margin-bottom: 1rem;
+
 }
 
 #news-md ul {
