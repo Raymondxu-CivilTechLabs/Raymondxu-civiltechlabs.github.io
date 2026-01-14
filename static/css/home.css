@@ -143,6 +143,67 @@
   text-decoration: none;
 }
 
+/* 每一条 news */
+.news-list li {
+  position: relative;
+  white-space: nowrap;        /* 单行 */
+  overflow: hidden;           /* 超出隐藏 */
+  text-overflow: ellipsis;    /* ... */
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+/* hover 时取消 ellipsis */
+.news-list li:hover {
+  text-overflow: clip;
+}
+
+
+/* 内部文本（用于滚动） */
+.news-list li .scroll-inner {
+  display: inline-block;
+  padding-right: 60px;  /* 留出滚动空间 */
+  transition: transform linear;
+  will-change: transform; /* 提高滚动性能 */
+}
+
+/* 鼠标悬停时触发滚动 */
+.news-list li:hover .scroll-inner {
+  animation: li-scroll 15s linear forwards; /* 播放一次，保持末尾 */
+}
+
+/* 滚动动画 */
+@keyframes li-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* 临时设置为-50%，后面可以用JS计算更精确 */
+  }
+}
+
+/* 内部文本（用于滚动） */
+/* .news-list li .scroll-inner {
+  display: inline-block;
+  padding-right: 60px; 
+  transition: transform linear;
+}   */
+
+/* hover 时触发滚动动画 */
+/* .news-list li:hover .scroll-inner {
+  animation: li-scroll 10s linear infinite;
+}   */
+
+/* 滚动动画 */
+/* @keyframes li-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% + 100%)); /* 会滚动整个内容到左边 */
+/*  }
+}   */
+
 .news-list li {
   margin-bottom: 0.5rem;
 }
@@ -156,6 +217,8 @@
   text-decoration: none;
   color: #3948d2;   /* 链接颜色 */
 }
+
+
 
 .news-link:hover {
   text-decoration: none;

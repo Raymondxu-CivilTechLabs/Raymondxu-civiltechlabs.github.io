@@ -34,9 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
           const match = line.match(/- \*\*(.*?)\*\* — \[(.*?)\]\((.*?)\)/);
           if (!match) return `<li>${line}</li>`;
           const [, date, title, href] = match;
-          return `<li><span class="news-date">${date}</span> — <a class="news-link" href="${href}">${title}</a></li>`;
+          // return `<li><span class="news-date">${date}</span> — <a class="news-link" href="${href}">${title}</a></li>`;
+          return `<li><div class="scroll-inner"><span class="news-date">${date}</span> — <a class="news-link" href="${href}">${title}</a></div></li>`;
         })
         .join("");
+
+
 
       // 如果总条目超过5条，添加 —More
       if (sorted.length > 6) {
@@ -52,3 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
       newsContainer.innerHTML = "<li>Error loading news.</li>";
     });
 });
+
+document.querySelectorAll("#news-md li").forEach(li => {
+  const inner = li.querySelector(".scroll-inner");
+  const liWidth = li.offsetWidth;
+  const contentWidth = inner.scrollWidth;
+
+  if (contentWidth > liWidth) {
+    const distance = contentWidth - liWidth + 10; // 多加一点间距
+    inner.style.animation = `li-scroll ${distance / 50}s linear forwards`;
+  }
+});
+
+
