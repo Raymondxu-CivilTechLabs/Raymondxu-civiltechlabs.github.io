@@ -130,3 +130,45 @@
     transform: translateY(-2px);   /* 悬停微动画 */
     text-decoration: none !important; /* 重点：禁止下划线 */
 }
+
+
+
+.news-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 1rem;  /* 条目字体大小 */
+  color: #333;      /* 条目字体颜色 */
+}
+
+.news-list li {
+  margin-bottom: 0.5rem;
+}
+
+.news-date {
+  font-weight: bold;
+  color: #24306b;   /* 日期颜色 */
+}
+
+.news-link {
+  text-decoration: none;
+  color: #3948d2;   /* 链接颜色 */
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
+
+.news-more-link {
+  display: inline-block;
+  float: right;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3948d2;
+  text-decoration: none;
+}
+
+.news-more-link:hover {
+  text-decoration: underline;
+}

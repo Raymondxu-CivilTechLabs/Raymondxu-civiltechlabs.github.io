@@ -1,49 +1,54 @@
-document.addEventListener("DOMContentLoaded", async function() {
-    const newsList = document.getElementById("news-md");
-    const newsMore = document.getElementById("news-more");
+document.addEventListener("DOMContentLoaded", () => {
+  const newsContainer = document.getElementById("news-md");
+  if (!newsContainer) return;
 
-    try {
-        // 读取 news.md 文件
-        const res = await fetch("contents/home/news.md");
-        const text = await res.text();
+  fetch("contents/home/news.md")
+    .then(response => response.text())
+    .then(text => {
+      // 分割每行并去除空行
+      const lines = text
+        .split("\n")
+        .map(l => l.trim())
+        .filter(l => l.length > 0);
 
-        // 按行拆分，过滤空行
-        const lines = text.split("\n").filter(l => l.trim());
+      if (lines.length === 0) {
+        newsContainer.innerHTML = "<li>No news available.</li>";
+        return;
+      }
 
-        // 解析 markdown 链接: [日期 - 标题](link)
-        const allNews = lines.map(line => {
-            const match = line.match(/\[(.+?)\]\((.+?)\)/);
-            return match ? { text: match[1], link: match[2] } : null;
-        }).filter(Boolean);
+      // 按日期倒序（最新在前）
+      const sorted = [...lines].sort((a, b) => {
+        const dateA = a.match(/\*\*(.*?)\*\*/) ? a.match(/\*\*(.*?)\*\*/)[1] : "";
+        const dateB = b.match(/\*\*(.*?)\*\*/) ? b.match(/\*\*(.*?)\*\*/)[1] : "";
+        return dateB.localeCompare(dateA);
+      });
 
-        // 显示最新 5 条
-        allNews.slice(0, 5).forEach(item => {
-            const li = document.createElement("li");
-            li.style.marginBottom = "0.3rem";   // 条目间距
-            li.style.fontSize = "0.95rem";      // 小字体
-            li.style.lineHeight = "1.3rem";
+      // 只显示最新5条
+      const latestFive = sorted.slice(0, 6);
 
-            const a = document.createElement("a");
-            a.href = item.link;
-            a.textContent = item.text;
-            a.className = "news-link";
-            a.style.textDecoration = "none"; // 去掉下划线
-            li.appendChild(a);
-            newsList.appendChild(li);
-        });
+      // 渲染到列表
+      newsContainer.innerHTML = latestFive
+        .map(line => {
+          // line 是 markdown 链接格式 - **YYYY-MM** — [title](link)
+          // 转成 HTML
+          const match = line.match(/- \*\*(.*?)\*\* — \[(.*?)\]\((.*?)\)/);
+          if (!match) return `<li>${line}</li>`;
+          const [, date, title, href] = match;
+          return `<li><span class="news-date">${date}</span> — <a class="news-link" href="${href}">${title}</a></li>`;
+        })
+        .join("");
 
-        // 如果条目超过 5 条，显示 More
-        if(allNews.length > 5){
-            newsMore.style.display = "block";
-            newsMore.addEventListener("click", () => {
-                window.location.href = "all-news.html";
-            });
-        } else {
-            newsMore.style.display = "none";
-        }
-
-    } catch(err) {
-        console.error("加载 news.md 失败", err);
-        newsList.innerHTML = "<li>无法加载新闻内容</li>";
-    }
+      // 如果总条目超过5条，添加 —More
+      if (sorted.length > 6) {
+        const moreLink = document.createElement("a");
+        moreLink.href = "all-news.html";
+        moreLink.textContent = "— More";
+        moreLink.className = "news-more-link";
+        newsContainer.parentElement.appendChild(moreLink);
+      }
+    })
+    .catch(err => {
+      console.error("Failed to load news.md:", err);
+      newsContainer.innerHTML = "<li>Error loading news.</li>";
+    });
 });

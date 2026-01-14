@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 
-// 要扫描的文件夹
+// 需要扫描的文件夹
 const sections = ["events", "research", "teaching", "blog", "interests"];
 const contentsDir = path.join(__dirname, "..", "contents");
 const newsFile = path.join(contentsDir, "home", "news.md");
@@ -16,7 +16,7 @@ if (fs.existsSync(newsFile)) {
     .filter(line => line.length > 0);
 }
 
-// 生成 key 集合，避免重复
+// 生成已存在条目的 key 集合，避免重复
 const existingKeys = new Set(
   existingNews.map(line => {
     const match = line.match(/\((.*?)\.html#(.*?)\)/);
@@ -71,6 +71,7 @@ sections.forEach(section => {
     const date = getDateFromMD(fullPath);
     const fileKey = `${section}/${path.basename(file, ".md")}`;
 
+    // 如果 news.md 中没有这个条目，则视为新条目
     if (!existingKeys.has(fileKey)) {
       const relativeLink = `${section}.html#${path.basename(file, ".md")}`;
       const line = `- **${date}** — [${title}](${relativeLink})`;
