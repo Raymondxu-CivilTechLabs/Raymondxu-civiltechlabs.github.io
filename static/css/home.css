@@ -27,7 +27,7 @@
 }
 
 #home-profile a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #3948d2;
 }
 
@@ -47,8 +47,10 @@
 /* News */
 #home-news h3 {
     font-family: Kanit, "Cambria", "Mulish",  sans-serif; /* 字体 */
-    font-size: 1.5rem;
+    font-size:2rem;
     color: #24306b;
+    margin-top: -3rem;        /* 👈 关键 */
+    margin-bottom: 1rem;
 }
 
 #news-md ul {
@@ -81,7 +83,7 @@
 }
 
 .news-link:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #3948d2;
 }
 
@@ -139,6 +141,7 @@
   margin: 0;
   font-size: 1rem;  /* 条目字体大小 */
   color: #333;      /* 条目字体颜色 */
+  text-decoration: none;
 }
 
 .news-list li {
@@ -156,7 +159,7 @@
 }
 
 .news-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .news-more-link {
@@ -170,6 +173,6 @@
 }
 
 .news-more-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 

@@ -45,7 +45,7 @@
 
 
   <!-- ===== Home Content ===== -->
-<section class="bg-gradient-primary-to-secondary-light mt-5 mb-5">
+<section class="bg-gradient-primary-to-secondary-light mb-5">
   <div class="container px-5">
 
     <div class="row justify-content-center">
@@ -53,6 +53,17 @@
       <div class="col-md-6 text-center">
         <div id="home-news" class="text-start">
           <h3 class="mb-3">News</h3>
+
+        <!-- 标签导航 -->
+        <div id="news-filters" class="mb-3">
+          <button class="btn btn-sm btn-outline-primary active" data-section="all">All</button>
+          <button class="btn btn-sm btn-outline-primary" data-section="events">Events</button>
+          <button class="btn btn-sm btn-outline-primary" data-section="research">Research</button>
+          <button class="btn btn-sm btn-outline-primary" data-section="teaching">Teaching</button>
+          <button class="btn btn-sm btn-outline-primary" data-section="blog">Blog</button>
+          <button class="btn btn-sm btn-outline-primary" data-section="interests">Interests</button>
+        </div>
+
           <ul id="news-md" class="news-list mx-auto"></ul>
         </div>
       </div>
@@ -79,6 +90,7 @@
       <!-- JS -->
       <script src="static/js/navbar.js"></script>
       <script src="static/js/home.js"></script>
+      <script src="static/js/all-news.js"></script>
    
 
 </body>
