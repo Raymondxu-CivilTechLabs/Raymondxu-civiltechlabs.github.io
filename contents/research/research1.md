@@ -1,6 +1,5 @@
 ---
-date: 2026-01-13
-title: New Smart Concrete Project
-anchor: smart-concrete
+title: LDPM - Research areas at Politecnico di Milano and with collaborating professors
+date: 2025-12-13
 ---
-详细内容写在对应板块 HTML 页面，例如 research.html#smart-concrete
+LDPM - Research areas at Politecnico di Milano and with collaborating professors

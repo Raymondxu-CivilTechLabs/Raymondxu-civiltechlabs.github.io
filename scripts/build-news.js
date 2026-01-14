@@ -7,58 +7,43 @@ const sections = ["events", "research", "teaching", "blog", "interests"];
 const contentsDir = path.join(__dirname, "..", "contents");
 const newsFile = path.join(contentsDir, "home", "news.md");
 
-// 读取现有 news.md 内容
-let existingNews = [];
-if (fs.existsSync(newsFile)) {
-  existingNews = fs.readFileSync(newsFile, "utf-8")
-    .split("\n")
-    .map(line => line.trim())
-    .filter(line => line.length > 0);
-}
-
-// 生成已存在条目的 key 集合，避免重复
-const existingKeys = new Set(
-  existingNews.map(line => {
-    const match = line.match(/\((.*?)\.html#(.*?)\)/);
-    return match ? `${match[1]}/${match[2]}` : line;
-  })
-);
-
 // 获取标题
 function getTitleFromMD(filePath) {
   const content = fs.readFileSync(filePath, "utf-8");
   const parsed = matter(content);
   let title = parsed.data.title;
+
   if (!title) {
     const lines = content.split("\n");
     const h1Line = lines.find(line => line.startsWith("# "));
-    title = h1Line ? h1Line.replace(/^#\s*/, "").trim() : path.basename(filePath, ".md");
+    title = h1Line
+      ? h1Line.replace(/^#\s*/, "").trim()
+      : path.basename(filePath, ".md");
   }
   return title;
 }
 
-// 获取日期，返回 YYYY-MM
+// 获取日期，返回 YYYY-MM-DD
 function getDateFromMD(filePath) {
   const content = fs.readFileSync(filePath, "utf-8");
   const parsed = matter(content);
   let date = parsed.data.date;
 
   if (!date) {
-    const stats = fs.statSync(filePath);
-    date = stats.mtime;
+    date = fs.statSync(filePath).mtime;
   }
 
   if (typeof date === "string") {
-    return date.slice(0, 7); // YYYY-MM
+    return date.slice(0, 10);
   } else if (date instanceof Date) {
-    return date.toISOString().slice(0, 7); // YYYY-MM
+    return date.toISOString().slice(0, 10);
   } else {
-    return new Date().toISOString().slice(0, 7);
+    return new Date().toISOString().slice(0, 10);
   }
 }
 
-// 收集新增条目
-let newEntries = [];
+// 收集所有条目（全量重建）
+let entries = [];
 
 sections.forEach(section => {
   const sectionDir = path.join(contentsDir, section);
@@ -69,24 +54,31 @@ sections.forEach(section => {
     const fullPath = path.join(sectionDir, file);
     const title = getTitleFromMD(fullPath);
     const date = getDateFromMD(fullPath);
-    const fileKey = `${section}/${path.basename(file, ".md")}`;
+    const slug = path.basename(file, ".md");
 
-    // 如果 news.md 中没有这个条目，则视为新条目
-    if (!existingKeys.has(fileKey)) {
-      const relativeLink = `${section}.html#${path.basename(file, ".md")}`;
-      const line = `- **${date}** — [${title}](${relativeLink})`;
-      newEntries.push({ line, date, key: fileKey });
-    }
+    const relativeLink = `${section}.html#${slug}`;
+    const line = `- **${date}** — [${title}](${relativeLink})`;
+
+    entries.push({ line, date });
   });
 });
 
-// 将新条目按日期倒序，放在 news.md 顶部
-if (newEntries.length > 0) {
-  newEntries.sort((a, b) => b.date.localeCompare(a.date));
-  const existingContent = existingNews.join("\n");
-  const contentToWrite = newEntries.map(e => e.line).join("\n") + "\n" + existingContent + "\n";
+// 按年月日倒序排序并写入 news.md（完全覆盖）
+if (entries.length > 0) {
+  entries.sort((a, b) => b.date.localeCompare(a.date));
+
+  const header = `<!-- AUTO-GENERATED FILE, DO NOT EDIT -->\n\n`;
+  const contentToWrite =
+    header + entries.map(e => e.line).join("\n") + "\n";
+
   fs.writeFileSync(newsFile, contentToWrite, "utf-8");
-  console.log(`Added ${newEntries.length} new entries to news.md`);
+  console.log(`Rebuilt news.md with ${entries.length} entries`);
 } else {
-  console.log("No new entries to add.");
+  // 如果没有任何内容，也覆盖为空（避免残留）
+  fs.writeFileSync(
+    newsFile,
+    "<!-- AUTO-GENERATED FILE, DO NOT EDIT -->\n",
+    "utf-8"
+  );
+  console.log("No entries found. news.md cleared.");
 }

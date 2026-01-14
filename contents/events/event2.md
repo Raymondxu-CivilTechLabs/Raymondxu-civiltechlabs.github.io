@@ -1,5 +1,5 @@
 ---
-title: Events 1 - International Conference on Civil Engineering
+title: Blog 1 -
 date: 2026-01-13
 ---
 

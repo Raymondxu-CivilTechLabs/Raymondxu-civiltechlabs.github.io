@@ -1,8 +1,7 @@
 ---
-title: Blog 2 - International Conference on Civil Engineering
-date: 2026-01-13
+title: My joint training program at Politecnico di Milano in Italy has begun!
+date: 2025-11-18
 ---
 
-# International Conference on Civil Engineering
+# My joint training program at Politecnico di Milano in Italy has begun!
 
-详细内容……
