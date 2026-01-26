@@ -27,7 +27,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-
     <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
     <link type="text/css" href="static/css/main.css" rel="stylesheet" />
@@ -78,54 +77,245 @@
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
     <script type="text/javascript" src="static/js/content-manager.js"></script>
 
+    <style>
+        /* markdown.html 风格排版 */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #24292e;
+            --link-color: #0366d6;
+            --meta-color: #6a737d;
+            --code-bg: #f6f8fa;
+            --border-color: #eaecef;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+        }
+
+        .detail-container {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .detail-header {
+            margin-bottom: 40px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .detail-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            color: var(--text-color);
+        }
+
+        .detail-meta {
+            font-size: 0.9rem;
+            color: var(--meta-color);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .detail-meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        article {
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+
+        article h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            color: var(--text-color);
+        }
+
+        article h4 {
+            font-size: 1.1rem;
+            margin-top: 1.2em;
+            margin-bottom: 0.6em;
+        }
+
+        article p {
+            margin-bottom: 1.5em;
+        }
+
+        article a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        article a:hover {
+            text-decoration: underline;
+        }
+
+        article ul,
+        article ol {
+            padding-left: 2em;
+            margin-bottom: 1.5em;
+        }
+
+        article li {
+            margin-bottom: 0.5em;
+        }
+
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            color: var(--meta-color);
+            margin: 0 0 1.5em 0;
+            padding: 0 1em;
+        }
+
+        code {
+            font-family: var(--font-code);
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 85%;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 16px;
+            overflow: auto;
+            border-radius: 6px;
+            line-height: 1.45;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1.5em 0;
+        }
+
+        table td,
+        table th {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--code-bg);
+            font-weight: 600;
+        }
+
+        .detail-nav {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .detail-nav a {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-button:hover {
+            text-decoration: underline;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .detail-container {
+                padding: 20px 15px;
+            }
+
+            .detail-title {
+                font-size: 1.5rem;
+            }
+
+            .detail-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            article {
+                font-size: 1rem;
+            }
+
+            article h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
 
-    <!-- Top Section -->
-    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-        <div class="top-section-content">
-            <div class="container px-5">
-                <h2 id="page-title" class="text-white display-3 lh-1 font-alt">Teaching</h2>
+    <div class="detail-container">
+        <!-- Back button -->
+        <a href="teaching.html" class="back-button">
+            <i class="bi bi-arrow-left"></i> 返回教学列表
+        </a>
+
+        <!-- Header -->
+        <div class="detail-header">
+            <h1 class="detail-title" id="detail-title">Teaching</h1>
+            <div class="detail-meta">
+                <span id="detail-date"><i class="bi bi-calendar"></i> <span id="date-value">-</span></span>
             </div>
         </div>
-    </section>
-    <!-- Top Section -->
 
-    <!-- Teaching Detail Content -->
-    <section class="container mt-5 pt-5 pb-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- Back button -->
-                <a href="teaching.html" class="btn btn-outline-primary mb-4">
-                    <i class="bi bi-arrow-left"></i> Back to Teaching
-                </a>
+        <!-- Content -->
+        <article id="teaching-content">
+            <p>加载中...</p>
+        </article>
 
-                <!-- Content -->
-                <article id="teaching-content" class="main-body"></article>
-
-                <!-- Navigation -->
-                <div class="mt-5 pt-4 border-top">
-                    <div class="row">
-                        <div class="col-6">
-                            <a id="prev-link" href="#" class="btn btn-outline-secondary w-100">
-                                <i class="bi bi-chevron-left"></i> Previous
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a id="next-link" href="#" class="btn btn-outline-secondary w-100">
-                                Next <i class="bi bi-chevron-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Navigation -->
+        <div class="detail-nav">
+            <a id="prev-link" href="#" class="btn btn-outline-secondary">
+                <i class="bi bi-chevron-left"></i> 上一门课程
+            </a>
+            <a id="next-link" href="#" class="btn btn-outline-secondary">
+                下一门课程 <i class="bi bi-chevron-right"></i>
+            </a>
         </div>
-    </section>
-    <!-- Teaching Detail Content End -->
+    </div>
 
     <!-- Footer-->
-    <footer class="bg-bottom text-center py-5">
+    <footer class="bg-bottom text-center py-5" style="margin-top: 60px;">
         <div class="container px-5">
             <div class="text-white-50 small">
                 <div id="copyright-text" class="mb-2">© Xuefeng Xu 2021-2026. All Rights Reserved.</div>
@@ -153,21 +343,25 @@
                 return;
             }
 
+            // Render content
             await manager.renderDetail('teaching-content', fileId);
 
+            // Update title and meta
             const file = manager.getFileById(fileId);
             if (file) {
-                document.getElementById('page-title').textContent = file.title;
+                document.getElementById('detail-title').textContent = file.title;
+                document.getElementById('date-value').textContent = file.date;
                 document.title = `${file.title} - Xuefeng Xu`;
             }
 
+            // Setup navigation
             const files = manager.getFiles();
             const currentIndex = files.findIndex(f => f.id === fileId);
 
             if (currentIndex > 0) {
                 const prevFile = files[currentIndex - 1];
                 document.getElementById('prev-link').href = `teaching-detail.html?id=${prevFile.id}`;
-                document.getElementById('prev-link').style.display = 'block';
+                document.getElementById('prev-link').style.display = 'inline-block';
             } else {
                 document.getElementById('prev-link').style.display = 'none';
             }
@@ -175,7 +369,7 @@
             if (currentIndex < files.length - 1) {
                 const nextFile = files[currentIndex + 1];
                 document.getElementById('next-link').href = `teaching-detail.html?id=${nextFile.id}`;
-                document.getElementById('next-link').style.display = 'block';
+                document.getElementById('next-link').style.display = 'inline-block';
             } else {
                 document.getElementById('next-link').style.display = 'none';
             }
