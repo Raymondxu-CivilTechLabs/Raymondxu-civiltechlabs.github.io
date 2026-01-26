@@ -6,19 +6,8 @@
 class ContentManager {
   constructor(section) {
     this.section = section; // 'events', 'teaching', 'interests'
-    // Determine base path for deployed site vs local preview.
-    // - Local preview (file:// or localhost) should use relative paths like "./contents/..."
-    // - Deployed on GitHub Pages: if the site is a project page, the first path segment
-    //   is the repo name (e.g. /REPO_NAME/), so use it as base; for user site (username.github.io)
-    //   the base will be empty.
-    const pathParts = window.location.pathname.split('/').filter(Boolean);
-    const firstSeg = pathParts[0] || '';
-    const probableRepoBase = (firstSeg && !firstSeg.includes('.')) ? `/${firstSeg}` : '';
-    const isLocalPreview = (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1');
-
-    this.basePath = isLocalPreview ? '' : probableRepoBase; // '' for user site or local preview
-    this.contentDir = isLocalPreview ? `./contents/${section}/` : `${this.basePath}/contents/${section}/`;
-    this.configFile = `${this.contentDir}config.yml`;
+    this.contentDir = `./contents/${section}/`;
+    this.configFile = `./contents/${section}/config.yml`;
     this.files = [];
   }
 
