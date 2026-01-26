@@ -1,18 +1,32 @@
-@import "./styles.css";       /* 引入基础样式 从外部文件加载基础样式表，实现代码模块化。*/
+/* ========================================
+   MAIN 全站样式表 (所有页面通用)
+   功能：控制导航栏、页面头部、底部、排版等全局样式
+   应用于：所有页面 (index.html、research.html、blog.html 等)
+   ======================================== */
 
+@import "./styles.css";  /* 导入 Bootstrap 基础样式 */
 
+/* ===== 全局 CSS 变量 =====
+   作用：定义全站通用颜色，方便一次性修改整个设计风格
+   --h-title-color: 页面标题、导航栏的主色（深蓝色） */
 :root{
-    --h-title-color:#24306b;      /* 深蓝色标题 通常用于定义全局 CSS 变量  定义一个名为“标题颜色”的变量，方便全站统一修改颜色，值为一种深蓝色。*/
+    --h-title-color:#24306b;  /* 深蓝色，用于标题和导航栏 */
 }
 
+/* ===== 导航栏样式 (.header) =====
+   作用：为导航栏底部添加蓝色分隔线，设置高 z-index 使其浮在内容之上
+   应用于：所有页面的导航栏 <nav class="header"> */
 .header {
-    border-bottom: solid 2px var(--bs-blue);         /* 定义标题下划线颜色  给头部下方添加一条 2px 宽的实线。颜色引用了 var(--bs-blue)（通常来自 Bootstrap 框架）*/
-    z-index: 10000;
+    border-bottom: solid 2px var(--bs-blue);  /* 导航栏下方的蓝色分隔线 */
+    z-index: 10000;  /* 高层级，确保导航栏浮在所有内容之上 */
 }
 
 
+/* ===== 底部样式 (.bg-bottom) =====
+   作用：设置页面底部（footer）的背景颜色为深蓝色
+   应用于：所有页面的 <footer class="bg-bottom"> */
 .bg-bottom {
-    background-color: var(--h-title-color);         /* 定义底部背景颜色 */
+    background-color: var(--h-title-color);  /* 深蓝色背景 */
 }
 
 .top-section {
