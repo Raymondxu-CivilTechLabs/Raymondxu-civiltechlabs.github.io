@@ -30,6 +30,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="static/css/styles.css" rel="stylesheet" />
     <link type="text/css" href="static/css/main.css" rel="stylesheet" />
+    <!-- 详情页面统一样式 -->
+    <link type="text/css" href="static/css/detail-pages.css" rel="stylesheet" />
 
     <!-- Bootstrap core JS-->
     <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
@@ -77,214 +79,6 @@
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
     <script type="text/javascript" src="static/js/content-manager.js"></script>
 
-    <style>
-        /* 参考 markdown.html 的优雅排版 */
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #24292e;
-            --link-color: #0366d6;
-            --meta-color: #6a737d;
-            --code-bg: #f6f8fa;
-            --border-color: #eaecef;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.75;
-        }
-
-        .research-container {
-            max-width: 740px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .research-header {
-            margin-bottom: 40px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        .research-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            line-height: 1.3;
-            color: var(--text-color);
-        }
-
-        .research-meta {
-            font-size: 0.9rem;
-            color: var(--meta-color);
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .research-meta span {
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .research-meta i {
-            margin-right: 5px;
-        }
-
-        article {
-            font-size: 1.05rem;
-            line-height: 1.75;
-        }
-
-        article h2 {
-            font-size: 1.5rem;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            padding-bottom: 0.3em;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-color);
-        }
-
-        article h3 {
-            font-size: 1.25rem;
-            margin-top: 1.5em;
-            margin-bottom: 0.8em;
-            color: var(--text-color);
-        }
-
-        article h4 {
-            font-size: 1.1rem;
-            margin-top: 1.2em;
-            margin-bottom: 0.6em;
-        }
-
-        article p {
-            margin-bottom: 1.5em;
-            text-align: justify;
-        }
-
-        article a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        article a:hover {
-            text-decoration: underline;
-        }
-
-        article ul,
-        article ol {
-            padding-left: 2em;
-            margin-bottom: 1.5em;
-        }
-
-        article li {
-            margin-bottom: 0.5em;
-        }
-
-        blockquote {
-            border-left: 4px solid #dfe2e5;
-            color: var(--meta-color);
-            margin: 0 0 1.5em 0;
-            padding: 0 1em;
-        }
-
-        code {
-            font-family: var(--font-code);
-            background-color: rgba(27, 31, 35, 0.05);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 85%;
-        }
-
-        pre {
-            background-color: var(--code-bg);
-            padding: 16px;
-            overflow: auto;
-            border-radius: 6px;
-            line-height: 1.45;
-        }
-
-        pre code {
-            background-color: transparent;
-            padding: 0;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 1.5em 0;
-        }
-
-        table td,
-        table th {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
-
-        table th {
-            background-color: var(--code-bg);
-            font-weight: 600;
-        }
-
-        .research-nav {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .research-nav a {
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--link-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .back-button:hover {
-            text-decoration: underline;
-        }
-
-        /* 响应式调整 */
-        @media (max-width: 600px) {
-            .research-container {
-                padding: 20px 15px;
-            }
-
-            .research-title {
-                font-size: 1.5rem;
-            }
-
-            .research-meta {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            article {
-                font-size: 1rem;
-            }
-
-            article h2 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
-
 </head>
 
 <body id="page-top">
@@ -320,7 +114,7 @@
     </div>
 
     <!-- Footer-->
-    <footer class="bg-bottom text-center py-5" style="margin-top: 60px;">
+    <footer class="bg-bottom text-center py-5 footer-top-margin">
         <div class="container px-5">
             <div class="text-white-50 small">
                 <div id="copyright-text" class="mb-2">© Xuefeng Xu 2021-2026. All Rights Reserved.</div>

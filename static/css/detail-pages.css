@@ -1,0 +1,538 @@
+/**
+ * ========== 统一详情页面样式表 ==========
+ * 
+ * 文件功能：集中管理所有详情页面的样式
+ * 适用页面：
+ *   - research-detail.html
+ *   - events-detail.html
+ *   - teaching-detail.html
+ *   - interests-detail.html
+ *   - blog-detail.html
+ * 
+ * 设计理念：采用 markdown.html 风格（GitHub 配色、740px 容器、清爽排版）
+ * 
+ * 变更历史：
+ *   - 2026-01-26: 初始创建，合并所有 detail 页面的重复 CSS
+ */
+
+/* ========== 第一部分：全局 CSS 变量定义 ========== */
+/**
+ * 功能：定义 GitHub 风格的配色和字体变量
+ * 作用：
+ *   1. 提高代码维护性 - 颜色集中管理，易于修改
+ *   2. 保证各页面配色一致性
+ *   3. 支持未来的暗色主题切换
+ */
+:root {
+    /* GitHub 风格配色 */
+    --bg-color: #ffffff;              /* 背景色：纯白 */
+    --text-color: #24292e;            /* 文本色：深灰 */
+    --link-color: #0366d6;            /* 链接色：蓝色 */
+    --meta-color: #6a737d;            /* 元数据色：浅灰（用于日期、分类等） */
+    --code-bg: #f6f8fa;               /* 代码背景：极浅灰 */
+    --border-color: #eaecef;          /* 边框色：浅灰 */
+    
+    /* 字体栈 */
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* ========== 第二部分：全局 body 样式 ========== */
+/**
+ * 功能：设置所有详情页面的基础 body 样式
+ * 适用页面：research-detail.html 等所有详情页面
+ * 作用：
+ *   1. 统一字体和行高
+ *   2. 统一文字颜色和背景颜色
+ *   3. 保证良好的可读性
+ */
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.75;
+}
+
+/* ========== 第三部分：详情页面容器样式 ========== */
+/**
+ * 功能：所有详情页面的主容器
+ * 对应页面和元素：
+ *   - .research-container (research-detail.html)
+ *   - .detail-container (events/teaching/interests-detail.html)
+ *   - .blog-container (blog-detail.html)
+ * 作用：
+ *   1. 限制最大宽度为 740px（参考 markdown.html）
+ *   2. 水平居中显示
+ *   3. 提供合理的内边距
+ */
+.research-container,
+.event-container,
+.teaching-container,
+.interest-container,
+.detail-container,
+.blog-container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ========== 第四部分：详情页面标题区域样式 ========== */
+/**
+ * 功能：详情页面的标题和元数据区域
+ * 对应页面和元素：
+ *   - .research-header (research-detail.html)
+ *   - .detail-header (events/teaching/interests-detail.html)
+ *   - .blog-header (blog-detail.html)
+ * 作用：
+ *   1. 设置标题区域的间距和边框
+ *   2. 将标题与内容区域视觉分隔
+ *   3. 提供清晰的信息层级
+ */
+.research-header,
+.event-header,
+.teaching-header,
+.interest-header,
+.detail-header,
+.blog-header {
+    margin-bottom: 40px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+/* ========== 第五部分：详情页面标题文本样式 ========== */
+/**
+ * 功能：详情页面的主标题（通常是 <h1>）
+ * 对应页面和元素：
+ *   - .research-title (research-detail.html)
+ *   - .detail-title (events/teaching/interests-detail.html)
+ *   - .blog-title (blog-detail.html)
+ * 作用：
+ *   1. 大字号 2rem，确保视觉焦点
+ *   2. 加粗 font-weight: 600，增强层级
+ *   3. 1.3 行高，保证多行标题的可读性
+ */
+.research-title,
+.event-title,
+.teaching-title,
+.interest-title,
+.detail-title,
+.blog-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+/* ========== 第六部分：详情页面元数据样式 ========== */
+/**
+ * 功能：详情页面的元数据（日期、分类等）显示
+ * 对应页面和元素：
+ *   - .research-meta (research-detail.html)
+ *   - .detail-meta (events/teaching/interests-detail.html)
+ *   - .blog-meta (blog-detail.html)
+ * 作用：
+ *   1. 浅灰色显示，与主标题区分
+ *   2. Flexbox 布局，多项目自适应排列
+ *   3. 图标和文本对齐
+ */
+.research-meta,
+.event-meta,
+.teaching-meta,
+.interest-meta,
+.detail-meta,
+.blog-meta {
+    font-size: 0.9rem;
+    color: var(--meta-color);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.research-meta span,
+.event-meta span,
+.teaching-meta span,
+.interest-meta span,
+.detail-meta span,
+.blog-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.research-meta i,
+.event-meta i,
+.teaching-meta i,
+.interest-meta i,
+.detail-meta i,
+.blog-meta i {
+    margin-right: 5px;
+}
+
+/* ========== 第七部分：文章内容基础样式 ========== */
+/**
+ * 功能：article 标签内容的基础样式
+ * 适用所有详情页面
+ * 作用：
+ *   1. 设置正文字号和行高
+ *   2. 保证文本易读性（1.05rem 字号，1.75 行高）
+ *   3. 为嵌套元素提供基础样式继承
+ */
+article {
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+/* ========== 第八部分：文章标题样式 ========== */
+/**
+ * 功能：markdown 生成的 <h2>, <h3>, <h4> 等标题样式
+ * 对应元素：article h2, h3, h4
+ * 作用：
+ *   1. h2 带下边框分隔，强调小节标题
+ *   2. 合理的 margin 和 padding 提高可读性
+ *   3. 字号递减，形成清晰的信息层级
+ */
+article h2 {
+    font-size: 1.5rem;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+article h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    color: var(--text-color);
+}
+
+article h4 {
+    font-size: 1.1rem;
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+}
+
+/* ========== 第九部分：文章段落样式 ========== */
+/**
+ * 功能：文章中的段落 <p> 标签样式
+ * 对应元素：article p
+ * 作用：
+ *   1. 段落间合理的间距（1.5em margin-bottom）
+ *   2. 两端对齐（text-align: justify），使文本块更规整
+ */
+article p {
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+article strong {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+article em {
+    font-style: italic;
+}
+
+/* ========== 第十部分：文章代码块样式 ========== */
+/**
+ * 功能：文章中的代码样式（行内代码和代码块）
+ * 对应元素：article code, article pre
+ * 作用：
+ *   1. 行内代码 (<code>)：浅灰背景，易于区分
+ *   2. 代码块 (<pre>)：带边框、背景和 padding，清晰展示
+ *   3. pre code：移除背景，避免双重背景
+ */
+article code {
+    background-color: var(--code-bg);
+    color: #24292e;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+    font-family: var(--font-code);
+}
+
+article pre {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+    margin-bottom: 1.5em;
+}
+
+article pre code {
+    background-color: transparent;
+    color: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* ========== 第十一部分：文章列表样式 ========== */
+/**
+ * 功能：文章中的有序列表和无序列表样式
+ * 对应元素：article ul, article ol, article li
+ * 作用：
+ *   1. 合理的缩进（padding-left: 2em）
+ *   2. 列表项间的适当间距
+ *   3. 整体与文章内容的视觉协调
+ */
+article ul,
+article ol {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+article li {
+    margin-bottom: 0.5em;
+}
+
+/* ========== 第十二部分：文章链接样式 ========== */
+/**
+ * 功能：文章中的超链接样式
+ * 对应元素：article a
+ * 作用：
+ *   1. 蓝色链接（#0366d6），符合 GitHub 风格
+ *   2. 默认无下划线，悬停时显示下划线
+ *   3. 提供清晰的交互反馈
+ */
+article a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+/* ========== 第十三部分：文章引用块样式 ========== */
+/**
+ * 功能：文章中的引用块 <blockquote> 样式
+ * 对应元素：article blockquote
+ * 作用：
+ *   1. 左边 4px 灰色竖线，视觉区分
+ *   2. 灰色文字，与主要文本区分
+ *   3. 提供清晰的引用标识
+ */
+article blockquote {
+    border-left: 4px solid var(--border-color);
+    color: var(--meta-color);
+    margin: 1.5em 0;
+    padding: 0 15px;
+}
+
+/* ========== 第十四部分：文章表格样式 ========== */
+/**
+ * 功能：文章中的表格样式
+ * 对应元素：article table
+ * 作用：
+ *   1. 100% 宽度，充分利用容器空间
+ *   2. 边框合并，避免双线
+ *   3. 清晰展示表格数据
+ */
+article table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+
+article table th,
+article table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+}
+
+article table th {
+    background-color: var(--code-bg);
+    font-weight: 600;
+}
+
+/* ========== 第十五部分：文章图片样式 ========== */
+/**
+ * 功能：文章中的图片样式
+ * 对应元素：article img
+ * 作用：
+ *   1. 最大宽度 100%，自适应容器
+ *   2. 圆角边框，增加美感
+ *   3. 合理的上下间距
+ */
+article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1.5em 0;
+}
+
+/* ========== 第十六部分：返回按钮样式 ========== */
+/**
+ * 功能：详情页面的"返回列表"按钮
+ * 对应元素：.back-button
+ * 对应页面：所有 detail 页面
+ * 作用：
+ *   1. 蓝色链接样式，与页面整体协调
+ *   2. inline-block 显示，可点击面积适中
+ *   3. 位于标题上方，便于导航
+ */
+.back-button {
+    color: var(--link-color);
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+    font-size: 0.95rem;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* ========== 第十七部分：详情页面导航样式 ========== */
+/**
+ * 功能：详情页面的"上一篇/下一篇"导航
+ * 对应元素：
+ *   - .research-nav / .research-detail-nav
+ *   - .detail-nav (events/teaching/interests)
+ *   - .blog-nav
+ * 对应页面：所有 detail 页面
+ * 作用：
+ *   1. Flexbox 布局，上一篇左对齐，下一篇右对齐
+ *   2. 中间空白自适应填充
+ *   3. 提供便捷的内容导航
+ */
+.research-nav,
+.event-nav,
+.teaching-nav,
+.interest-nav,
+.detail-nav,
+.blog-nav {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.research-nav a,
+.event-nav a,
+.teaching-nav a,
+.interest-nav a,
+.detail-nav a,
+.blog-nav a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.research-nav a:hover,
+.event-nav a:hover,
+.teaching-nav a:hover,
+.interest-nav a:hover,
+.detail-nav a:hover,
+.blog-nav a:hover {
+    text-decoration: underline;
+}
+
+/* ========== 第十八部分：工具类样式 ========== */
+/**
+ * 功能：通用工具类，用于替代内联 style 属性
+ * 作用：
+ *   1. 保持 HTML 代码整洁
+ *   2. 便于统一管理和修改
+ *   3. 提高代码可维护性
+ */
+
+/* 隐藏类 - 替代 style="display: none" */
+.hidden {
+    display: none !important;
+}
+
+/* 显示为 inline-block - 替代 display: inline-block */
+.d-inline-block {
+    display: inline-block;
+}
+
+/* Flexbox 占位符 - 用于 flex 布局中的空白填充 */
+.flex-spacer {
+    flex: 1;
+}
+
+/* 页脚顶部间距 - 替代 style="margin-top: 60px" */
+.footer-top-margin {
+    margin-top: 60px;
+}
+
+/* ========== 第十九部分：响应式设计 ========== */
+/**
+ * 功能：适配平板及以下设备的响应式设计
+ * 断点：max-width: 768px
+ * 作用：
+ *   1. 减小内边距（20px 15px），适应小屏幕
+ *   2. 标题字号缩小（1.5rem），保证可读性
+ *   3. 导航按钮竖排显示，便于小屏幕操作
+ *   4. 正文字号微调，保证移动设备体验
+ */
+@media (max-width: 768px) {
+    /* 容器内边距调整 */
+    .research-container,
+    .event-container,
+    .teaching-container,
+    .interest-container,
+    .detail-container,
+    .blog-container {
+        padding: 20px 15px;
+    }
+
+    /* 标题字号调整 */
+    .research-title,
+    .event-title,
+    .teaching-title,
+    .interest-title,
+    .detail-title,
+    .blog-title {
+        font-size: 1.5rem;
+    }
+
+    /* 正文字号微调 */
+    article {
+        font-size: 1rem;
+    }
+
+    /* 导航按钮竖排显示 */
+    .research-nav,
+    .event-nav,
+    .teaching-nav,
+    .interest-nav,
+    .detail-nav,
+    .blog-nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    /* 表格字号调整 */
+    article table th,
+    article table td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    /* 代码块字号调整 */
+    article code {
+        font-size: 0.8rem;
+    }
+
+    article pre {
+        padding: 12px;
+        overflow-x: auto;
+    }
+}
+
+/* ========== 文件结束 ========== */
