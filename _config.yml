@@ -4,6 +4,10 @@ baseurl: ""
 # 对于项目站点，baseurl 应为 "/project-name"
 # 例如: baseurl: "/Raymondxu-civiltechlabs.github.io"
 
+# 确保 contents 文件夹被包含在部署中（GitHub Pages 会发布到根目录）
+include:
+  - contents
+
 # 告诉 Jekyll 忽略这些文件夹，不进行扫描和渲染
 exclude:
   - node_modules
