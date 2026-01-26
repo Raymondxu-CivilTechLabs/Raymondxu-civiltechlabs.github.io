@@ -1,6 +1,8 @@
 ---
 title: 欢迎进入Polimi实验室
 date: 2025-12-13
+category: 学术活动
+summary: 我在Politecnico di Milano联合培养项目的首个重要事件
 ---
 
 # 欢迎进入Polimi实验室

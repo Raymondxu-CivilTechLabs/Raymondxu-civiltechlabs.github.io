@@ -105,6 +105,8 @@ class ContentManager {
             fileName: fileName,
             title: metadata.title || fileName,
             date: metadata.date || new Date().toISOString().split('T')[0],
+            category: metadata.category || '', // 分类
+            summary: metadata.summary || '', // 摘要
             content: content
           });
         }
@@ -152,7 +154,13 @@ class ContentManager {
   }
 
   /**
-   * 渲染列表视图
+   * 渲染列表视图 - 采用 blog 部分的卡片样式
+   * 样式特点：
+   * - 左边蓝色竖线：border-left: 4px solid #0366d6
+   * - 卡片风格：border rounded shadow-sm
+   * - 日期和分类图标：bi bi-calendar3、bi bi-tag
+   * - 蓝色链接：#0366d6
+   * - 灰色元数据文本：#6a737d
    */
   renderList(containerId) {
     const container = document.getElementById(containerId);
@@ -166,15 +174,17 @@ class ContentManager {
     }
 
     const listHtml = this.files.map(file => `
-      <div class="content-item mb-4 p-4 border rounded shadow-sm">
+      <div class="content-item mb-4 p-4 border rounded shadow-sm" style="border-left: 4px solid #0366d6;">
         <h3 class="mb-2">
-          <a href="${this.section}-detail.html?id=${file.id}" class="text-decoration-none">
+          <a href="${this.section}-detail.html?id=${file.id}" style="color: #0366d6; text-decoration: none;">
             ${file.title}
           </a>
         </h3>
-        <p class="text-muted mb-0">
-          <i class="bi bi-calendar"></i> ${file.date}
-        </p>
+        <div class="text-muted small mb-2">
+          <i class="bi bi-calendar3"></i> ${file.date || '未知日期'}
+          ${file.category ? `&nbsp;|&nbsp;<i class="bi bi-tag"></i> ${file.category}` : ''}
+        </div>
+        ${file.summary ? `<p class="mb-0" style="color: #6a737d;">${file.summary}</p>` : ''}
       </div>
     `).join('');
 
