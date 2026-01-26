@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let allItems = [];
 
   try {
-    const res = await fetch("contents/home/news.md");
+    const res = await fetch("./contents/home/news.md");
     const mdText = await res.text();
 
     // 拆分 markdown 条目（按行）

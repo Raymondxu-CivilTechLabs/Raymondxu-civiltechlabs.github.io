@@ -1,7 +1,13 @@
+# GitHub Pages 配置
+# 对于用户站点，baseurl 应为空
+baseurl: ""
+# 对于项目站点，baseurl 应为 "/project-name"
+# 例如: baseurl: "/Raymondxu-civiltechlabs.github.io"
+
 # 告诉 Jekyll 忽略这些文件夹，不进行扫描和渲染
 exclude:
   - node_modules
-  - scripts/node_modules  # 根据日志显示，你的路径在这里
+  - scripts/node_modules # 根据日志显示，你的路径在这里
   - vendor
   - .bundle
   - .jekyll-cache

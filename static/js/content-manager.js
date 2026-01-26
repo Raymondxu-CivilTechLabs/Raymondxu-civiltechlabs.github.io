@@ -6,8 +6,8 @@
 class ContentManager {
   constructor(section) {
     this.section = section; // 'events', 'teaching', 'interests'
-    this.contentDir = `contents/${section}/`;
-    this.configFile = `${this.contentDir}config.yml`;
+    this.contentDir = `./contents/${section}/`;
+    this.configFile = `./contents/${section}/config.yml`;
     this.files = [];
   }
 

@@ -93,7 +93,7 @@ function renderCategoryFilter() {
 function renderSinglePost(postId) {
     const post = posts.find(p => p.id === postId);
     if(post) {
-        fetch(`contents/blog/${post.id}.md`)
+        fetch(`./contents/blog/${post.id}.md`)
             .then(res => res.text())
             .then(md => {
                 const container = document.getElementById('blog-list');

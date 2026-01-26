@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const newsContainer = document.getElementById("news-md");
   if (!newsContainer) return;
 
-  fetch("contents/home/news.md")
+  fetch("./contents/home/news.md")
     .then(response => response.text())
     .then(text => {
       // 分割每行并去除空行
