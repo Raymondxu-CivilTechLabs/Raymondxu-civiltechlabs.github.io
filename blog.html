@@ -37,7 +37,7 @@
 
     <!-- For Compatability -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    
+
     <!-- Markdown -->
     <script type="text/javascript" src="static/js/marked.min.js"></script>
 
@@ -72,17 +72,20 @@
             }
         };
     </script>
-    <script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
+    <script type="text/javascript" id="MathJax-script"
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <!-- Core JS-->
     <script type="text/javascript" src="static/js/scripts.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
+    <script type="text/javascript" src="static/js/content-manager.js"></script>
 
 </head>
 
 <body id="page-top">
-    
+
 
     <!-- Top Section -->
     <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
@@ -95,12 +98,12 @@
     <!-- Top Section -->
 
     <!-- Blog list -->
-    <section class="container mt-5 pt-5">
+    <section class="container mt-5 pt-5 pb-5">
         <div id="blog-list"></div>
     </section>
 
 
-<!-- Footer-->
+    <!-- Footer-->
     <footer class="bg-bottom text-center py-5">
         <div class="container px-5">
             <div class="text-white-50 small">
@@ -109,12 +112,54 @@
                 <span class="mx-1">|</span>
                 <a id="github-link" href="https://github.com/Raymondxu-CivilTechLabs">Github</a>
                 <span class="mx-1">&middot;</span>
-                <a id="license-link" href="https://github.com/Raymondxu-CivilTechLabs/Raymondxu-civiltechlabs.github.io/blob/main/LICENSE">License</a>
+                <a id="license-link"
+                    href="https://github.com/Raymondxu-CivilTechLabs/Raymondxu-civiltechlabs.github.io/blob/main/LICENSE">License</a>
             </div>
         </div>
     </footer>
 
-    <script src="static/js/blog.js"></script>
+    <script src="static/js/content-manager.js"></script>
+    <script>
+        // ========== 博客列表初始化 ==========
+        // 功能：使用 ContentManager 加载 blog 部分的所有 markdown 文件，并以列表形式展示
+
+        async function initBlogList() {
+            const manager = new ContentManager('blog');
+            await manager.init();
+
+            const container = document.getElementById('blog-list');
+            const files = manager.files;
+
+            if (files.length === 0) {
+                container.innerHTML = '<p>暂无博客文章</p>';
+                return;
+            }
+
+            // 按日期降序排列（最新的在前）
+            files.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            // 生成博客列表 HTML
+            const listHTML = files.map(file => `
+                <div class="blog-item mb-4 p-4 border rounded shadow-sm" style="border-left: 4px solid #0366d6;">
+                    <h3 class="mb-2">
+                        <a href="blog-detail.html?id=${file.id}" style="color: #0366d6; text-decoration: none;">
+                            ${file.title}
+                        </a>
+                    </h3>
+                    <div class="text-muted small mb-2">
+                        <i class="bi bi-calendar3"></i> ${file.date || '未知日期'}
+                        ${file.category ? `&nbsp;|&nbsp;<i class="bi bi-tag"></i> ${file.category}` : ''}
+                    </div>
+                    ${file.summary ? `<p class="mb-0" style="color: #6a737d;">${file.summary}</p>` : ''}
+                </div>
+            `).join('');
+
+            container.innerHTML = listHTML;
+        }
+
+        initBlogList();
+    </script>
     <script src="static/js/navbar.js"></script>
 </body>
+
 </html>
