@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Episode Title - My Podcast</title>
+    <style>
+        /* --- 1. 全局设置 (仿 Bigshans 风格) --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #24292e;
+            /* 接近 GitHub 的深灰色 */
+            --link-color: #0366d6;
+            /* 链接蓝 */
+            --meta-color: #6a737d;
+            /* 元数据灰 */
+            --code-bg: #f6f8fa;
+            /* 代码块浅灰背景 */
+            --border-color: #eaecef;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            /* 宽松的行高，提升阅读体验 */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- 2. 布局容器 (核心：居中 + 宽度限制) --- */
+        .container {
+            max-width: 740px;
+            /* 控制阅读宽度，仿照目标网站 */
+            margin: 0 auto;
+            /* 居中 */
+            padding: 40px 20px;
+        }
+
+        /* --- 3. 头部与元数据 --- */
+        header {
+            margin-bottom: 40px;
+            text-align: left;
+            /* 保持左对齐或居中皆可，目标站是左对齐 */
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1.post-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--meta-color);
+            display: flex;
+            gap: 15px;
+            /* 间距 */
+            align-items: center;
+        }
+
+        .post-meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* 标签样式 */
+        .tag {
+            background: #f1f8ff;
+            color: var(--link-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        /* --- 4. 播客播放器 (新增模块) --- */
+        .podcast-player {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* --- 5. 正文内容排版 --- */
+        article {
+            font-size: 1.05rem;
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        article h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5em;
+        }
+
+        article p {
+            margin-bottom: 1.5em;
+        }
+
+        article a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        article a:hover {
+            text-decoration: underline;
+        }
+
+        article ul {
+            padding-left: 2em;
+            margin-bottom: 1.5em;
+        }
+
+        article li {
+            margin-bottom: 0.5em;
+        }
+
+        /* 引用块样式 */
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            color: var(--meta-color);
+            margin: 0 0 1.5em 0;
+            padding: 0 1em;
+        }
+
+        /* 代码块样式 */
+        code {
+            font-family: var(--font-code);
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 85%;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 16px;
+            overflow: auto;
+            border-radius: 6px;
+            line-height: 1.45;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        /* --- 6. 底部导航 --- */
+        .footer-nav {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1 class="post-title">Vol. 01: 为什么我们要用 Zsh 以及如何配置？</h1>
+            <div class="post-meta">
+                <span>📅 2024-05-20</span>
+                <span>⏱️ 45 min listen</span>
+                <span>
+                    🏷️
+                    <a href="#" class="tag">Linux</a>
+                    <a href="#" class="tag">Productivity</a>
+                </span>
+            </div>
+        </header>
+
+        <div class="podcast-player">
+            <div style="font-weight: bold; margin-bottom: 5px; color: #444;">🎧 点击播放本期节目</div>
+            <audio controls>
+                <source src="your-audio-file.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <article>
+            <p>这里是本期播客的简介。我们模仿了 Bigshans 的排版风格：清晰、干净、专注于内容。</p>
+
+            <h2>本期 Shownotes</h2>
+            <p>在这一期节目中，我们聊到了终端效率工具的选择...</p>
+
+            <blockquote>
+                “工具只是手段，效率才是目的。” —— 某位嘉宾
+            </blockquote>
+
+            <h3>时间轴</h3>
+            <ul>
+                <li><strong>00:00</strong> 开场白与嘉宾介绍</li>
+                <li><strong>05:20</strong> 为什么要放弃 Bash 转向 Zsh</li>
+                <li><strong>12:45</strong> `Oh My Zsh` vs 原生配置</li>
+                <li><strong>30:10</strong> 推荐插件：<code>zsh-autosuggestions</code></li>
+            </ul>
+
+            <h3>提及的命令</h3>
+            <p>如果你想缩短路径显示，可以在 <code>.zshrc</code> 中修改：</p>
+
+            <pre><code># 缩短路径显示的配置
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"</code></pre>
+
+            <h3>相关链接</h3>
+            <ul>
+                <li><a href="https://bigshans.github.io">原文参考博客</a></li>
+                <li><a href="#">嘉宾的个人主页</a></li>
+            </ul>
+        </article>
+
+        <nav class="footer-nav">
+            <a href="#">&larr; 上一期: 这是上一期的标题</a>
+            <a href="#">下一期: 敬请期待 &rarr;</a>
+        </nav>
+    </div>
+
+</body>
+
+</html>
