@@ -226,7 +226,7 @@
 
 .news-more-link {
   display: inline-block;
-  float: right;
+  margin-left: auto;
   margin-top: 0.3rem;
   font-size: 1rem;
   font-weight: bold;

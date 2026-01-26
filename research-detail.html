@@ -84,32 +84,27 @@
 <body id="page-top">
 
     <div class="research-container">
-        <!-- Back button -->
-        <a href="research.html" class="back-button">
-            <i class="bi bi-arrow-left"></i> 返回研究列表
-        </a>
+        <a href="research.html" class="back-button">← 返回研究列表</a>
 
-        <!-- Header -->
         <div class="research-header">
-            <h1 class="research-title" id="research-title">Research</h1>
+            <h1 id="research-title" class="research-title"></h1>
             <div class="research-meta">
-                <span id="research-date"><i class="bi bi-calendar"></i> <span id="date-value">-</span></span>
+                <span id="research-date"></span>
+                <span id="research-category"></span>
+                <span id="research-stats"></span>
             </div>
         </div>
 
-        <!-- Content -->
-        <article id="research-content">
-            <p>加载中...</p>
-        </article>
+        <article id="research-content"></article>
 
-        <!-- Navigation -->
         <div class="research-nav">
-            <a id="prev-link" href="#" class="btn btn-outline-secondary">
-                <i class="bi bi-chevron-left"></i> 上一篇
-            </a>
-            <a id="next-link" href="#" class="btn btn-outline-secondary">
-                下一篇 <i class="bi bi-chevron-right"></i>
-            </a>
+            <div id="prev-nav" style="display: none;">
+                <a id="prev-link" href="">← 上一篇研究</a>
+            </div>
+            <div style="flex: 1;"></div>
+            <div id="next-nav" style="display: none;">
+                <a id="next-link" href="">下一篇研究 →</a>
+            </div>
         </div>
     </div>
 
@@ -149,7 +144,23 @@
             const file = manager.getFileById(fileId);
             if (file) {
                 document.getElementById('research-title').textContent = file.title;
-                document.getElementById('date-value').textContent = file.date;
+
+                // 显示日期
+                if (file.date) {
+                    document.getElementById('research-date').innerHTML = `<i class="bi bi-calendar3"></i> ${file.date}`;
+                }
+
+                // 显示分类（可点击链接）
+                if (file.category) {
+                    document.getElementById('research-category').innerHTML = `<i class="bi bi-tag"></i> <a href="research.html?category=${encodeURIComponent(file.category)}">${file.category}</a>`;
+                }
+
+                // 计算字数和阅读时间
+                const contentElement = document.getElementById('research-content');
+                const wordCount = contentElement.innerText.length;
+                const readTime = Math.ceil(wordCount / 300); // 假设平均每分钟阅读 300 个字
+                document.getElementById('research-stats').innerHTML = `<i class="bi bi-file-text"></i> ${wordCount} 字 · ${readTime} 分钟`;
+
                 document.title = `${file.title} - Xuefeng Xu`;
             }
 
@@ -159,18 +170,14 @@
 
             if (currentIndex > 0) {
                 const prevFile = files[currentIndex - 1];
+                document.getElementById('prev-nav').style.display = 'block';
                 document.getElementById('prev-link').href = `research-detail.html?id=${prevFile.id}`;
-                document.getElementById('prev-link').style.display = 'inline-block';
-            } else {
-                document.getElementById('prev-link').style.display = 'none';
             }
 
             if (currentIndex < files.length - 1) {
                 const nextFile = files[currentIndex + 1];
+                document.getElementById('next-nav').style.display = 'block';
                 document.getElementById('next-link').href = `research-detail.html?id=${nextFile.id}`;
-                document.getElementById('next-link').style.display = 'inline-block';
-            } else {
-                document.getElementById('next-link').style.display = 'none';
             }
         });
     </script>

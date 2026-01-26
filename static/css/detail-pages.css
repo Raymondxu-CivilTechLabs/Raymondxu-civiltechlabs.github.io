@@ -26,15 +26,20 @@
 :root {
     /* GitHub 风格配色 */
     --bg-color: #ffffff;              /* 背景色：纯白 */
-    --text-color: #24292e;            /* 文本色：深灰 */
+    --text-color: #24306b;            /* 文本色：深灰 */
     --link-color: #0366d6;            /* 链接色：蓝色 */
     --meta-color: #6a737d;            /* 元数据色：浅灰（用于日期、分类等） */
     --code-bg: #f6f8fa;               /* 代码背景：极浅灰 */
     --border-color: #eaecef;          /* 边框色：浅灰 */
     
     /* 字体栈 */
-    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-title: Kanit, "Cambria", "Mulish", sans-serif;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+    /* --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; */
 }
 
 /* ========== 第二部分：全局 body 样式 ========== */
@@ -50,7 +55,8 @@ body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.65;
 }
 
 /* ========== 第三部分：详情页面容器样式 ========== */
@@ -118,11 +124,12 @@ body {
 .interest-title,
 .detail-title,
 .blog-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    line-height: 1.3;
-    color: var(--text-color);
+    font-family: var(--font-title);
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.35;
+    color: var(--h-title-color);
 }
 
 /* ========== 第六部分：详情页面元数据样式 ========== */
@@ -170,6 +177,35 @@ body {
     margin-right: 5px;
 }
 
+/* ========== 分类标签链接样式 ========== */
+/**
+ * 功能：使分类显示为可点击的链接
+ * 对应元素：.category-tag (在 meta 中)
+ * 作用：
+ *   1. 采用链接色 (#0366d6)，用户能识别为可点击
+ *   2. 去除下划线，保持简洁
+ *   3. Hover 时显示下划线，提供反馈
+ */
+.research-meta a,
+.event-meta a,
+.teaching-meta a,
+.interest-meta a,
+.detail-meta a,
+.blog-meta a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.research-meta a:hover,
+.event-meta a:hover,
+.teaching-meta a:hover,
+.interest-meta a:hover,
+.detail-meta a:hover,
+.blog-meta a:hover {
+    text-decoration: underline;
+}
+
+
 /* ========== 第七部分：文章内容基础样式 ========== */
 /**
  * 功能：article 标签内容的基础样式
@@ -180,8 +216,8 @@ body {
  *   3. 为嵌套元素提供基础样式继承
  */
 article {
-    font-size: 1.05rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.55;
 }
 
 /* ========== 第八部分：文章标题样式 ========== */
@@ -194,7 +230,7 @@ article {
  *   3. 字号递减，形成清晰的信息层级
  */
 article h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-top: 2em;
     margin-bottom: 1em;
     padding-bottom: 0.3em;
@@ -203,14 +239,14 @@ article h2 {
 }
 
 article h3 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-top: 1.5em;
     margin-bottom: 0.8em;
     color: var(--text-color);
 }
 
 article h4 {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     margin-top: 1.2em;
     margin-bottom: 0.6em;
 }

@@ -83,237 +83,7 @@
     <script type="text/javascript" src="static/js/content-manager.js"></script>
     <script type="text/javascript" src="static/js/js-yaml.min.js"></script>
 
-    <style>
-        /* ========== 博客详细页面样式 (blog-detail.html) ========== */
-        /* 功能：统一美观的博客详情页面样式，采用 markdown.html 风格（740px 容器、GitHub 配色、清爽排版） */
 
-        /* 参考 markdown.html 的优雅排版 */
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #24292e;
-            --link-color: #0366d6;
-            --meta-color: #6a737d;
-            --code-bg: #f6f8fa;
-            --border-color: #eaecef;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            --font-code: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.75;
-        }
-
-        /* 博客详细页面容器 - 740px最大宽度，居中显示 */
-        .blog-container {
-            max-width: 740px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* 博客详细页面标题区域 - 包含标题和元数据 */
-        .blog-header {
-            margin-bottom: 40px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
-        }
-
-        /* 博客标题 - 2rem 字号，加粗，清晰可读 */
-        .blog-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            line-height: 1.3;
-            color: var(--text-color);
-        }
-
-        /* 博客元数据 - 日期、分类等信息 */
-        .blog-meta {
-            font-size: 0.9rem;
-            color: var(--meta-color);
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .blog-meta span {
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .blog-meta i {
-            margin-right: 5px;
-        }
-
-        /* 博客文章内容区域 */
-        article {
-            font-size: 1.05rem;
-            line-height: 1.75;
-        }
-
-        /* 博客文章标题 - 带下边框分隔 */
-        article h2 {
-            font-size: 1.5rem;
-            margin-top: 2em;
-            margin-bottom: 1em;
-            padding-bottom: 0.3em;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-color);
-        }
-
-        article h3 {
-            font-size: 1.25rem;
-            margin-top: 1.5em;
-            margin-bottom: 0.8em;
-            color: var(--text-color);
-        }
-
-        article h4 {
-            font-size: 1.1rem;
-            margin-top: 1.2em;
-            margin-bottom: 0.6em;
-        }
-
-        /* 博客文章段落 - 合理行距和对齐 */
-        article p {
-            margin-bottom: 1.5em;
-            text-align: justify;
-        }
-
-        article strong {
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        article em {
-            font-style: italic;
-        }
-
-        /* 代码块样式 */
-        article code {
-            background-color: var(--code-bg);
-            color: #24292e;
-            padding: 0.2em 0.4em;
-            margin: 0;
-            font-size: 85%;
-            border-radius: 3px;
-            font-family: var(--font-code);
-        }
-
-        article pre {
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            line-height: 1.45;
-            overflow: auto;
-            padding: 16px;
-            margin-bottom: 1.5em;
-        }
-
-        article pre code {
-            background-color: transparent;
-            color: inherit;
-            font-size: 100%;
-            padding: 0;
-            margin: 0;
-            border-radius: 0;
-        }
-
-        /* 列表样式 */
-        article ul,
-        article ol {
-            margin-bottom: 1.5em;
-            padding-left: 2em;
-        }
-
-        article li {
-            margin-bottom: 0.5em;
-        }
-
-        /* 链接样式 */
-        article a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        article a:hover {
-            text-decoration: underline;
-        }
-
-        /* 引用块样式 */
-        article blockquote {
-            border-left: 4px solid var(--border-color);
-            padding: 0 15px;
-            color: var(--meta-color);
-            margin: 1.5em 0;
-        }
-
-        /* 图片样式 */
-        article img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            margin: 1.5em 0;
-        }
-
-        /* 返回按钮 - 在标题上方 */
-        .back-button {
-            color: var(--link-color);
-            text-decoration: none;
-            margin-bottom: 20px;
-            display: inline-block;
-            font-size: 0.95rem;
-        }
-
-        .back-button:hover {
-            text-decoration: underline;
-        }
-
-        /* 博客导航区域 - 上一篇/下一篇按钮 */
-        .blog-nav {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.95rem;
-        }
-
-        .blog-nav a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        .blog-nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* 响应式设计 - 平板及以下 */
-        @media (max-width: 768px) {
-            .blog-container {
-                padding: 20px 15px;
-            }
-
-            .blog-title {
-                font-size: 1.5rem;
-            }
-
-            article {
-                font-size: 1rem;
-            }
-
-            .blog-nav {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-        }
-    </style>
 </head>
 
 <body id="page-top">
@@ -328,6 +98,7 @@
             <div class="blog-meta">
                 <span id="blog-date"></span>
                 <span id="blog-category"></span>
+                <span id="blog-stats"></span>
             </div>
         </div>
 
@@ -345,7 +116,7 @@
     </div>
 
     <!-- Footer-->
-    <footer class="bg-bottom text-center py-5" style="margin-top: 60px;">
+    <footer class="bg-bottom text-center py-5 footer-top-margin">
         <div class="container px-5">
             <div class="text-white-50 small">
                 <div id="copyright-text" class="mb-2">© Xuefeng Xu 2021-2026. All Rights Reserved.</div>
@@ -393,10 +164,16 @@
                     document.getElementById('blog-date').innerHTML = `<i class="bi bi-calendar3"></i> ${file.date}`;
                 }
 
-                // 显示分类
+                // 显示分类（可点击链接）
                 if (file.category) {
-                    document.getElementById('blog-category').innerHTML = `<i class="bi bi-tag"></i> ${file.category}`;
+                    document.getElementById('blog-category').innerHTML = `<i class="bi bi-tag"></i> <a href="blog.html?category=${encodeURIComponent(file.category)}">${file.category}</a>`;
                 }
+
+                // 计算字数和阅读时间
+                const contentElement = document.getElementById('blog-content');
+                const wordCount = contentElement.innerText.length;
+                const readTime = Math.ceil(wordCount / 300);
+                document.getElementById('blog-stats').innerHTML = `<i class="bi bi-file-text"></i> ${wordCount} 字 · ${readTime} 分钟`;
 
                 // 处理导航按钮
                 const currentIndex = files.findIndex(f => f.id === fileId);
