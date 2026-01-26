@@ -1,0 +1,62 @@
+/* Unified footer styles for list and detail pages
+   Purpose: centralize footer font, size, line-height and link styles
+   Edit this file to adjust footer typography across:
+     index, events, research, teaching, blog, interests, about
+   and their corresponding detail pages.
+*/
+
+:root {
+  --footer-font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --footer-font-size: 0.95rem; /* adjust as needed */
+  --footer-line-height: 1.6;   /* adjust as needed */
+  --footer-color: rgba(255,255,255,0.85);
+  --footer-link-color: rgba(255,255,255,0.95);
+}
+
+/* Target the site's footer used across pages (list + detail) */
+footer.bg-bottom.text-center.py-5,
+footer.bg-bottom.text-center.py-5.footer-top-margin,
+footer.bg-bottom.text-center.py-5 .container,
+footer.bg-bottom.text-center.py-5 .text-white-50.small {
+  font-family: var(--footer-font-family) !important;
+  font-size: var(--footer-font-size) !important;
+  line-height: var(--footer-line-height) !important;
+  color: var(--footer-color) !important;
+}
+
+/* Ensure links in footer use the unified color and remain readable */
+footer.bg-bottom a {
+  color: var(--footer-link-color) !important;
+  text-decoration: none;
+}
+footer.bg-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Small adjustments: copyright and separators spacing */
+footer.bg-bottom .mb-2 { margin-bottom: 0.45rem !important; }
+
+/* Provide a single place for future footer typography tweaks */
+
+/* No spacing overrides here — keep spacing controlled by existing
+   detail-pages.css and page-specific rules. If you later want to
+   change footer spacing globally, edit or uncomment rules here. */
+
+/* ========== STICKY FOOTER LAYOUT ========== */
+/* Ensure footer always appears at the bottom of the page.
+   If content is taller than viewport, footer sits below it.
+   If content is shorter than viewport, footer sticks to bottom. */
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer.bg-bottom {
+  margin-top: auto;  /* Push footer to bottom by taking up available space above */
+}
