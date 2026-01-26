@@ -208,6 +208,18 @@ section .main-body{
   color: #858587;
 }
 
+/* ===== 导航栏链接高亮 ===== */
+.navbar-nav .nav-link.active {
+  color: var(--bs-blue) !important;
+  font-weight: 600;
+  border-bottom: 2px solid var(--bs-blue);
+  padding-bottom: 0.3rem;
+}
+
+.navbar-nav .nav-link.active:hover {
+  color: var(--bs-blue) !important;
+}
+
 /* 小屏幕响应式 */
 @media (max-width: 991px) {
   #navbar-right-section {

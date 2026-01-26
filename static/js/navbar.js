@@ -41,4 +41,33 @@ document.addEventListener("DOMContentLoaded", function () {
   </nav>
   `;
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
+
+  // ===== 高亮当前页面对应的导航栏链接 =====
+  function highlightCurrentNavLink() {
+    // 获取当前页面的文件名（不含 .html 后缀）
+    let currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+    
+    // 如果是 detail 页面（如 research-detail），去掉 -detail 后缀，获取主页面名称
+    if (currentPage.endsWith('-detail')) {
+      currentPage = currentPage.replace('-detail', '');
+    }
+    
+    // 获取所有导航链接
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+    navLinks.forEach(link => {
+      // 获取链接指向的文件名
+      const href = link.getAttribute('href').replace('.html', '');
+      
+      // 如果链接对应当前页面或对应页面的 detail，添加 active class
+      if (href === currentPage || (currentPage === '' && href === 'index')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // 页面加载完成后立即高亮
+  highlightCurrentNavLink();
 });
