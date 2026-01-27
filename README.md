@@ -1,15 +1,16 @@
 
-
+<!-- 
 ![Github Forks](https://img.shields.io/github/forks/senli1073/academic-homepage-template?style=flat)
 ![Github Stars](https://img.shields.io/github/stars/senli1073/academic-homepage-template?style=flat)
 ![License](https://img.shields.io/github/license/senli1073/academic-homepage-template)
-![Last Commit](https://img.shields.io/github/last-commit/senli1073/academic-homepage-template)
+![Last Commit](https://img.shields.io/github/last-commit/senli1073/academic-homepage-template) -->
 
 # A simple Github Pages template for personal academic websites.
 
 ## Preview
-[![Screenshot of the Website](https://raw.githubusercontent.com/senli1073/academic-homepage-template/main/screenshot_full.png)](https://senli1073.github.io/)
+<!-- [![Screenshot of the Website](https://raw.githubusercontent.com/senli1073/academic-homepage-template/main/screenshot_full.png)](https://senli1073.github.io/) -->
 
+[![Screenshot of the Website](./static/assets/preview.png)](https://raymondxu-civiltechlabs.github.io/)
 
 ## Introduction
 
