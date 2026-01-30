@@ -7,6 +7,7 @@ summary: gh 基本命令操作
 
 
 ## gh 基本命令
+
 `gh` (GitHub CLI) 的命令设计非常直观，采用了 **`gh <大类> <动词> [参数]`** 的语法结构。
 
 为了让你更清楚地理解，我将常用命令按**功能场景**分类，并解释每行代码背后的**实际意义**。
@@ -121,8 +122,6 @@ summary: gh 基本命令操作
 5. **请求合并**：`gh pr create` (让同事审查代码)
 6. **同事合并后，发布新版**：`gh release create v1.0.0 app.exe` (打包发布)
 
-
-
 ---
 
 ### 8. 账号与认证 (Auth)
@@ -130,13 +129,10 @@ summary: gh 基本命令操作
 * **`gh auth login`** (登录)
 * **全参数例子**: 登录 GitHub 企业版，指定 SSH 协议，请求额外的权限范围，并直接通过网页验证。
 
-
 ```bash
 gh auth login --hostname github.company.com --git-protocol ssh --scopes "repo,read:org,workflow" --web
 
 ```
-
-
 
 ---
 
@@ -145,23 +141,18 @@ gh auth login --hostname github.company.com --git-protocol ssh --scopes "repo,re
 * **`gh repo create`** (创建仓库)
 * **全参数例子**: 将**当前文件夹**(`--source=.`)变成一个 GitHub 仓库，设为**公开**，指定由 **Node** 的忽略文件模板，使用 **MIT** 协议，添加描述，并立即**推送到远程**。
 
-
 ```bash
 gh repo create my-project --public --source=. --description "这是一个自动创建的项目" --gitignore Node --license MIT --push --remote upstream
 
 ```
 
-
 * **`gh repo list`** (列出仓库)
 * **全参数例子**: 列出我看过的最后 **50** 个 **JavaScript** 语言的 **非私有** 仓库，并只输出仓库的 URL 和描述（方便脚本处理）。
-
 
 ```bash
 gh repo list --language javascript --limit 50 --visibility public --json url,description
 
 ```
-
-
 
 ---
 
@@ -169,21 +160,17 @@ gh repo list --language javascript --limit 50 --visibility public --json url,des
 
 * **`gh release create`** (新建发布)
 * **全参数例子**:
+
 1. 创建一个名为 `v1.2.0` 的标签。
 2. 标记为 **预发布** (`--prerelease`) 和 **草稿** (`--draft`)。
 3. 标题叫 "v1.2.0 Beta"。
 4. 从本地文件 `notes.md` 读取更新日志。
 5. 一次性上传 `dist` 文件夹下的**所有文件**。
 
-
-
-
 ```bash
 gh release create v1.2.0 ./dist/* --title "v1.2.0 Beta (测试版)" --notes-file release_notes.md --draft --prerelease --target main
 
 ```
-
-
 
 ---
 
@@ -192,33 +179,26 @@ gh release create v1.2.0 ./dist/* --title "v1.2.0 Beta (测试版)" --notes-file
 * **`gh pr create`** (创建 PR)
 * **全参数例子**: 创建一个 PR，指定标题和内容，指派给自己 (`@me`)，指定审核人 (`reviewer`)，打上 "bug" 和 "urgent" 标签，关联到名为 "Roadmap" 的项目板，并设为草稿模式。
 
-
 ```bash
 gh pr create --title "修复登录页面的崩溃问题" --body "详细修复逻辑请见文档..." --assignee @me --reviewer "team-lead" --label "bug,urgent" --project "Roadmap" --draft
 
 ```
 
-
 * **`gh pr list`** (列出 PR)
 * **全参数例子**: 列出所有状态为 **Open** 的，标签包含 **"bug"** 的，并且是我自己 (`@me`) 提交的 PR。
-
 
 ```bash
 gh pr list --state open --label "bug" --author "@me" --limit 20
 
 ```
 
-
 * **`gh pr merge`** (合并 PR)
 * **全参数例子**: 自动合并编号为 `#12` 的 PR，使用 **Squash** (压缩提交) 模式，自动删除远程分支，并且不需要再次确认 (`--auto` 表示如果检查没过就自动排队等待)。
-
 
 ```bash
 gh pr merge 12 --squash --delete-branch --auto --subject "合并 PR #12: 修复登录 Bug"
 
 ```
-
-
 
 ---
 
@@ -227,23 +207,18 @@ gh pr merge 12 --squash --delete-branch --auto --subject "合并 PR #12: 修复�
 * **`gh issue create`** (提新问题)
 * **全参数例子**: 报告一个 Bug，直接从文件读取报错日志作为内容，指派给负责人，设定里程碑为 "v2.0"。
 
-
 ```bash
 gh issue create --title "生产环境 500 错误" --body-file ./error_log.txt --assignee "dev-manager" --label "critical" --milestone "v2.0"
 
 ```
 
-
 * **`gh issue list`** (看问题列表)
 * **全参数例子**: 查找所有**未分配人员** (`--no-assignee`) 且提到 "UI" 这个词的 Open 状态的问题。
-
 
 ```bash
 gh issue list --state open --no-assignee --search "UI"
 
 ```
-
-
 
 ---
 
@@ -252,13 +227,10 @@ gh issue list --state open --no-assignee --search "UI"
 * **`gh gist create`** (创建代码片段)
 * **全参数例子**: 将本地的 `script.py` 文件上传为一个公开的 Gist，并附带描述。
 
-
 ```bash
 gh gist create script.py --public --desc "这是一个用于自动备份的 Python 脚本"
 
 ```
-
-
 
 ---
 
@@ -267,23 +239,18 @@ gh gist create script.py --public --desc "这是一个用于自动备份的 Pyth
 * **`gh run list`** (查看运行记录)
 * **全参数例子**: 查看名为 "Build and Deploy" 的工作流，且状态为 **失败** (`failure`) 的最近 10 次记录，指定查看 `main` 分支。
 
-
 ```bash
 gh run list --workflow "Build and Deploy" --status failure --branch main --limit 10
 
 ```
 
-
 * **`gh run watch`** (实时监控，非常酷)
 * **例子**: 监控最新的那次运行，直到它结束，如果失败了以非零状态码退出（适合用在脚本里等待部署完成）。
-
 
 ```bash
 gh run watch --exit-status
 
 ```
-
-
 
 ---
 

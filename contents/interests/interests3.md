@@ -166,14 +166,15 @@ Markdown 提供 6 级标题，常用 H1-H3，H4-H6 较少用。
 ```python
 def hello():
     print("Hello World")
-````
+```
 
 ````
 
 💡 **技巧/坑点**
-- 三个反引号 ``` 必须独立一行。
-- 可指定语言高亮，例如 `python`、`javascript`。
-- VS Code 插件 **Markdown Preview Enhanced** 支持渲染语法高亮。
+
+* 三个反引号 ``` 必须独立一行。
+* 可指定语言高亮，例如 `python`、`javascript`。
+* VS Code 插件 **Markdown Preview Enhanced** 支持渲染语法高亮。
 
 ---
 
@@ -316,19 +317,19 @@ x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 
 * 可用于笔记、任务跟踪。
 
-2. **引用内部链接**
+1. **引用内部链接**
 
 ```markdown
 [跳转到章节](#chapter-1)
 ```
 
-3. **自定义 ID 和 TOC**
+1. **自定义 ID 和 TOC**
 
 ```markdown
 ### Chapter 1 {#chapter1}
 ```
 
-4. **折叠内容**
+1. **折叠内容**
 
 ```markdown
 <details>
@@ -337,27 +338,29 @@ x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}
 </details>
 ```
 
-5. **Markdown + Mermaid 绘图**
+1. **Markdown + Mermaid 绘图**
 
 ````markdown
 ```mermaid
 graph TD;
     A-->B;
     B-->C;
-````
+```
 
 ````
-- VS Code 需要 Markdown Preview Enhanced 插件。
-- 冷门但强大：可以生成流程图、时序图、甘特图。
 
-6. **表格内嵌 HTML**
+* VS Code 需要 Markdown Preview Enhanced 插件。
+* 冷门但强大：可以生成流程图、时序图、甘特图。
+
+1. **表格内嵌 HTML**
+
 ```markdown
 | Column 1    | Column 2      |
 | ----------- | ------------- |
 | <b>Bold</b> | <i>Italic</i> |
 ````
 
-7. **注释**
+1. **注释**
 
 ```markdown
 <!-- 这是注释 -->
