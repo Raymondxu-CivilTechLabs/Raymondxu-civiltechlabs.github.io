@@ -13,8 +13,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       .split("\n")
       .filter(l => l.trim().startsWith("- "))
       .map(line => {
-        const match = line.match(/\((.*?)\.html#/);
-        const section = match ? match[1] : "all";
+        // 支持两种链接格式：
+        // 1. 旧格式：research.html#LDPM1
+        // 2. 新格式：research-detail.html?id=research1
+        let section = "all";
+        
+        // 尝试匹配新格式：{section}-detail.html?id=
+        let match = line.match(/\(([a-z-]+)-detail\.html\?id=/);
+        if (match) {
+          section = match[1].replace(/-detail$/, ''); // 移除 -detail 后缀
+        } else {
+          // 尝试匹配旧格式：{section}.html#
+          match = line.match(/\(([a-z]+)\.html#/);
+          if (match) {
+            section = match[1];
+          }
+        }
+        
         return { md: line, section };
       });
 

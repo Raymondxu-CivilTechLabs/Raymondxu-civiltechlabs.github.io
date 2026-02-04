@@ -505,6 +505,67 @@ article img {
     margin-top: 60px;
 }
 
+/* ========== 第十八部分：列表项目样式控制 ========== */
+/**
+ * 功能：控制所有列表页面中的条目样式（research.html、blog.html、events.html 等）
+ * 对应元素：.content-item（由 ContentManager.renderList() 生成）
+ * 适用页面：
+ *   - research.html
+ *   - events.html
+ *   - teaching.html
+ *   - interests.html
+ *   - blog.html
+ * 
+ * 作用：
+ *   1. 统一控制列表项目的字体大小
+ *   2. 管理条目高度和内部padding
+ *   3. 调整条目间隔（margin）
+ *   4. 便于后期快速调整 - 可通过搜索 "【列表项目样式控制】" 快速定位
+ */
+
+/* ========== 【列表项目样式控制】 ========== */
+/* 基础列表条目样式 */
+.content-item {
+    /* 外部间隔：条目之间的距离 */
+    margin-bottom: 0.5rem;    /* Bootstrap 默认 mb-4 = 1.5rem，可调整此值改变间隔 */
+    
+    /* 内部padding：条目内容的内边距 */
+    padding: 0.5rem !important;  /* Bootstrap 默认 p-4 = 1.5rem，减小为 1rem 使条目更紧凑 */
+    
+    /* 过渡效果 */
+    transition: all 0.3s ease;
+}
+
+/* 列表条目中的标题 */
+.content-item h3 {
+    font-size: 0.5rem;        /* 列表项标题字号 - 默认 1.3rem，改为 1.05rem 使其更紧凑 */
+    margin-bottom: 0.5rem;     /* 标题下方间隔 */
+    font-weight: 600;
+}
+
+/* 列表条目中的元数据（日期、分类等） */
+.content-item .text-muted.small {
+    font-size: 0.5rem;        /* 元数据字号 - 默认 0.9rem，改为 0.85rem */
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+/* 列表条目中的摘要 */
+.content-item p {
+    font-size: 0.3rem;        /* 摘要字号 - 默认 1rem，改为 0.95rem */
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: #6a737d;
+}
+
+/* 列表条目的悬停效果 */
+.content-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+/* ========== 【列表项目样式控制】结束 ========== */
+
 /* ========== 第十九部分：响应式设计 ========== */
 /**
  * 功能：适配平板及以下设备的响应式设计
@@ -568,6 +629,26 @@ article img {
     article pre {
         padding: 12px;
         overflow-x: auto;
+    }
+
+    /* 【列表项目样式控制】- 响应式调整 */
+    /* 在小屏幕上进一步减小列表项目的间隔和内边距 */
+    .content-item {
+        margin-bottom: 1rem;     /* 减小条目之间的间隔 */
+        padding: 0.75rem !important;  /* 减小内部padding */
+    }
+
+    .content-item h3 {
+        font-size: 0.95rem;      /* 进一步缩小标题 */
+        margin-bottom: 0.4rem;
+    }
+
+    .content-item .text-muted.small {
+        font-size: 0.8rem;       /* 缩小元数据字号 */
+    }
+
+    .content-item p {
+        font-size: 0.9rem;       /* 缩小摘要字号 */
     }
 }
 
