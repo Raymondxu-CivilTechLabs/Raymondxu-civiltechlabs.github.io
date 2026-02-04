@@ -263,7 +263,7 @@
    应用于：.news-category（日期后的分类标签） */
 .news-category {
   font-weight: 600;    /* 字体略微加粗 */
-  color: #2305cf;      /* 红色，与日期区分 */
+  color: #190397;      /* 红色，与日期区分 */
   margin-left: 0.3rem; /* 与日期的间距 */
   margin-right: 0.3rem; /* 与分割符的间距 */
 }
@@ -293,6 +293,33 @@
 
 .news-more-link:hover {
   text-decoration: none;  /* 悬停时仍然无下划线 */
+}
+
+/* ===== News 过滤标签按钮（All-News 页面） =====
+   作用：修改 all-news.html 页面顶部的标签导航按钮样式（All、Events、Research 等）
+   应用于：#news-filters 中的所有按钮 */
+#news-filters button {
+  font-weight: 600;           /* 字体粗细 */
+  color: #24306b !important;  /* 字体颜色 */
+  font-size: 0.95rem;         /* 字体大小 */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif,"Mulish", sans-serif;  /* 字体类型 */
+  border-color: #24306b !important;   /* 边框颜色 */
+  padding: 0.4rem 0.8rem;     /* 按钮内边距 */
+}
+
+/* 按钮悬停效果 */
+#news-filters button:hover {
+  background-color: #24306b !important;  /* 悬停背景色 */
+  color: white !important;                /* 悬停字体颜色 */
+  border-color: #24306b !important;
+}
+
+/* 按钮激活状态（当前选中的标签） */
+#news-filters button.active {
+  background-color: #24306b !important;  /* 激活背景色 */
+  color: white !important;                /* 激活字体颜色 */
+  border-color: #24306b !important;
+  font-weight: 700;                       /* 激活时更粗 */
 }
 
 

@@ -73,4 +73,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 🔴 关键点：用 marked 解析 Markdown
     newsContainer.innerHTML = marked.parse(htmlItems);
   }
+  
+    // ✅ 添加这段代码：给所有链接添加 .news-link 类
+    newsContainer.querySelectorAll('li a').forEach(a => {
+      a.classList.add('news-link');
+      if (a.href.startsWith('http')) a.target = '_blank';
+    });
 });
