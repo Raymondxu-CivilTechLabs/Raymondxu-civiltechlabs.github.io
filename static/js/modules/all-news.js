@@ -53,8 +53,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? allItems
         : allItems.filter(i => i.section === section);
 
+    // 将markdown条目转换为HTML，同时保留分类信息
+    const htmlItems = items.map(i => {
+      const line = i.md;
+      // 匹配新格式：- **YYYY-MM-DD** — [title](link) {section}
+      const match = line.match(/- \*\*(.*?)\*\* — \[(.*?)\]\((.*?)\)\s*\{(.*?)\}/);
+      if (!match) {
+        // 如果没有分类信息，用旧格式处理
+        return line;
+      }
+      
+      const [, date, title, href, sectionTag] = match;
+      const sectionLabel = sectionTag.toUpperCase();
+      
+      // 构造新的markdown，去除{section}部分，但保留分类显示在日期后
+      return `- **${date}** <span class="news-category">[${sectionLabel}]</span> — [${title}](${href})`;
+    }).join("\n");
+
     // 🔴 关键点：用 marked 解析 Markdown
-    const md = items.map(i => i.md).join("\n");
-    newsContainer.innerHTML = marked.parse(md);
+    newsContainer.innerHTML = marked.parse(htmlItems);
   }
 });

@@ -111,7 +111,8 @@ sections.forEach(section => {
     
     // 生成指向详情页面的链接
     const detailLink = `${section}-detail.html?id=${fileId}`;
-    const line = `- **${date}** — [${title}](${detailLink})`;
+    // 生成line时，添加data-section属性用于前端解析分类
+    const line = `- **${date}** — [${title}](${detailLink}) {${section}}`;
 
     entries.push({ 
       line, 

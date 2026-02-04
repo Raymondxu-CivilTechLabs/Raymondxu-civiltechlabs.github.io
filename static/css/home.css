@@ -258,10 +258,20 @@
   color: #24306b;      /* 深蓝色，与整体主色调统一 */
 }
 
+/* ===== 新闻分类标签样式 =====
+   作用：突出显示新闻的分类（如[INTERESTS]、[RESEARCH]等）
+   应用于：.news-category（日期后的分类标签） */
+.news-category {
+  font-weight: 600;    /* 字体略微加粗 */
+  color: #2305cf;      /* 红色，与日期区分 */
+  margin-left: 0.3rem; /* 与日期的间距 */
+  margin-right: 0.3rem; /* 与分割符的间距 */
+}
+
 /* 新闻链接样式（与上面重复，用于保险） */
 .news-link {
   text-decoration: none;
-  color: #3948d2;      /* 链接蓝色 */
+  color: #000a5c;      /* 链接蓝色 */
 }
 
 .news-link:hover {
@@ -276,8 +286,8 @@
   margin-left: auto;    /* 靠右对齐 */
   margin-top: 0.3rem;   /* 顶部间距 */
   font-size: 1rem;      /* 字号 */
-  font-weight: bold;    /* 加粗 */
-  color: #3948d2;       /* 蓝色链接 */
+  font-weight: bold !important;    /* 加粗 */
+  color: #000a5c;       /* 蓝色链接 */
   text-decoration: none;
 }
 

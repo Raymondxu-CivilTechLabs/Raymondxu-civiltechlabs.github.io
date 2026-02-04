@@ -29,13 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
       // 渲染到列表
       newsContainer.innerHTML = latestFive
         .map(line => {
-          // line 是 markdown 链接格式 - **YYYY-MM** — [title](link)
+          // line 是 markdown 链接格式 - **YYYY-MM** — [title](link) {section}
           // 转成 HTML
-          const match = line.match(/- \*\*(.*?)\*\* — \[(.*?)\]\((.*?)\)/);
+          const match = line.match(/- \*\*(.*?)\*\* — \[(.*?)\]\((.*?)\)\s*\{(.*?)\}/);
           if (!match) return `<li>${line}</li>`;
-          const [, date, title, href] = match;
+          const [, date, title, href, section] = match;
+          // 将 section 转换为大写标签
+          const sectionLabel = section.toUpperCase();
           // return `<li><span class="news-date">${date}</span> — <a class="news-link" href="${href}">${title}</a></li>`;
-          return `<li><div class="scroll-inner"><span class="news-date">${date}</span> — <a class="news-link" href="${href}">${title}</a></div></li>`;
+          return `<li><div class="scroll-inner"><span class="news-date">${date}</span> <span class="news-category">[${sectionLabel}]</span> — <a class="news-link" href="${href}">${title}</a></div></li>`;
         })
         .join("");
 
