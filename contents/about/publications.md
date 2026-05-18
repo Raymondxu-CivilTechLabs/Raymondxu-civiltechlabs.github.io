@@ -34,6 +34,7 @@
 
 
 ####  Patent
+
 - X. Xu, S. Cui, W. Xia, G. Li, S. Zhang, Z. Cao, & J. Rao. Experimental device and method for testing performance of tunnel water-plugging grouting materials under coupling environments, 2023.09.22, China, No. 202311237517.8.
 
 - S. Cui, X. Xu, W. Xia, G. Li, J. Rao, S. Zhang, & Z. Cao. Experimental device and method for testing dynamic water anti-washout property of water-plugging grouting materials under multi-field coupling environments, 2023.09.22, China, No. 202311237514.4.
