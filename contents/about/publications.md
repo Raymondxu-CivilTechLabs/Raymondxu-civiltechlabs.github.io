@@ -34,4 +34,14 @@
 
 
 ####  Patent
+X. Xu, S. Cui, W. Xia, G. Li, S. Zhang, Z. Cao, & J. Rao. Experimental device and method for testing performance of tunnel water-plugging grouting materials under coupling environments, 2023.09.22, China, No. 202311237517.8.
 
+S. Cui, X. Xu, W. Xia, G. Li, J. Rao, S. Zhang, & Z. Cao. Experimental device and method for testing dynamic water anti-washout property of water-plugging grouting materials under multi-field coupling environments, 2023.09.22, China, No. 202311237514.4.
+
+S. Cui, X. Xu, F. Fu, H. Zeng, X. Yan, C. Guo, & G. Li. Specimen molding device and method for flexible fiber pull-out test, 2020.01.12, China, No. 202010033291.X.
+
+J. Zhang, S. Cui, X. Xu, D. Tian, H. Wang, & Y. Zhang. Device and method for testing dynamic water anti-washout performance of grouting materials, 2023.09.27, China, No. 202311237515.9.
+
+S. Cui, P. Liu, X. Xu, F. Fu, C. Guo, G. Li, & F. Li. Specialized shotcrete materials for high-temperature and dry-heat environments in tunnels, 2020.01.13, China, No. 202010033964.1.
+
+S. Cui, W. Xia, X. Xu, G. Zeng, G. Li, & P. Liu. Surface-modified tetradecane phase change microcapsules, temperature-controlling and anti-freezing concrete and its preparation method, 2023.08.20, China, No. 202311051891.9.
